@@ -43,7 +43,7 @@ gem 'geocoder'
 gem 'bourbon'
 
 # Use Devise to authenticate users
-gem 'devise'
+gem 'devise', github: 'plataformatec/devise'
 
 # Use The Decorator Pattern
 gem 'draper'

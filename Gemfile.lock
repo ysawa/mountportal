@@ -9,6 +9,16 @@ GIT
       tzinfo (~> 0.3.22)
 
 GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 3c519b13ff94acf86bc744c8675ebea56b72c7b0
+  specs:
+    devise (3.0.0.rc)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      warden (~> 1.2.1)
+
+GIT
   remote: git@github.com:thoughtbot/capybara-webkit.git
   revision: 9bbf4f6b5572f7c63485f6eca915b49c581b13b2
   specs:
@@ -79,10 +89,6 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     database_cleaner (1.0.1)
-    devise (1.5.4)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.0.3)
-      warden (~> 1.1)
     diff-lcs (1.2.4)
     draper (1.2.1)
       actionpack (>= 3.0)
@@ -155,7 +161,7 @@ GEM
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     origin (1.1.0)
-    orm_adapter (0.0.7)
+    orm_adapter (0.4.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -262,7 +268,7 @@ DEPENDENCIES
   capybara-webkit!
   coffee-rails (~> 4.0.0)
   database_cleaner
-  devise
+  devise!
   draper
   fabrication
   fakeweb
