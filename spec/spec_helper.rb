@@ -33,7 +33,7 @@ Spork.prefork do
       tmp_directory = File.join(Rails.root, "public/uploads/tmp")
       FileUtils.rm_rf(tmp_directory) if File.directory?(tmp_directory)
       FakeWeb.clean_registry
-      %w(default analytics).each do |session|
+      %w(default).each do |session|
         Mongoid.session(session).collections.select {|c| c.name !~ /system/ }.each(&:drop)
       end
     end
@@ -50,7 +50,6 @@ Spork.prefork do
 
     # To test features using authentication
     %w(controller decorator view).each do |type|
-      config.include AppTestHelper, type: type.to_sym
       config.include Devise::TestHelpers, type: type.to_sym
       config.include DeviseAuthenticationHelper, type: type.to_sym
     end
