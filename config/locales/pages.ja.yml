@@ -3,3 +3,11 @@ ja:
     about:
       privacy: 'プライバシーポリシー'
       tos: '利用規約'
+    devise_passwords:
+      edit: 'パスワード再設定'
+      new: 'パスワード再発行'
+    devise_sessions:
+      destroy: 'ログアウト'
+      new: 'ログイン'
+    devise_registrations:
+      new: '新規登録'

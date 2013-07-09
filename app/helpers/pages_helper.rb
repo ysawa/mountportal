@@ -1,13 +1,17 @@
 module PagesHelper
 
-  def make_page_title(controller_path, action_name)
+  def make_page_title(rel_path = controller_path, rel_name = action_name)
     scope = ['pages']
-    scope += controller_path.split('/')
-    page_title = I18n.t(action_name, scope: scope)
+    scope += rel_path.split('/')
+    page_title = I18n.t(rel_name, scope: scope)
     if page_title.include? "translation missing"
       nil
     else
       page_title
     end
+  end
+
+  def site_title
+    'ChatTrek'
   end
 end

@@ -1,0 +1,19 @@
+ja:
+  attributes:
+    created_at: '作成日時'
+    email: 'メールアドレス'
+    href: 'URL'
+    id: 'ID'
+    password: 'パスワード'
+    password_confirmation: 'パスワード(再確認)'
+    updated_at: '更新日時'
+    _id: 'ID'
+  activemodel:
+    models:
+    attributes:
+  mongoid:
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        remember_me: '次回以降自動でログインする'
