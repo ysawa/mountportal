@@ -11,3 +11,5 @@ ja:
       new: 'ログイン'
     devise_registrations:
       new: '新規登録'
+    home:
+      index: 'トップページ'

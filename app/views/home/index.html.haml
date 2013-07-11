@@ -1,3 +1,7 @@
 .columns.small-12.large-12
   %h1= site_title
-  %p Find me in app/views/home/index.html.haml
+  .row
+    .columns.small-11.large-11.small-centered.large-centered
+      .row
+        = link_to '初めての方', new_user_registration_path, class: 'radius button columns small-5 large-5'
+        = link_to 'ログインしてはじめる', new_user_session_path, class: 'radius button columns small-5 large-5 small-offset-2 large-offset-2'

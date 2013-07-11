@@ -12,6 +12,6 @@ module PagesHelper
   end
 
   def site_title
-    'ChatTrek'
+    '明和トレックポータル'
   end
 end

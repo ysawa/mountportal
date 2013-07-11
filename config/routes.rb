@@ -1,4 +1,4 @@
-Chattrek::Application.routes.draw do
+Mountportal::Application.routes.draw do
   namespace "about" do
     get "privacy", as: :privacy
     get "tos", as: :tos
