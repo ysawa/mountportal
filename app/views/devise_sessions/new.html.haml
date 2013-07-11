@@ -1,5 +1,5 @@
 .columns.small-12.large-6.panel.large-centered
-  %h1= make_page_title
+  %h2= make_page_title('devise_sessions', 'new')
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .row
       .columns.large-4
