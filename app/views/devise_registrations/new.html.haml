@@ -17,7 +17,6 @@
         = f.label :password_confirmation
       .columns.large-8
         = f.password_field :password_confirmation
-    .row
+    .row.actions
       .columns.large-12
-        = f.submit "Sign up", class: 'button expand'
-  = render "devise/shared/links"
+        = f.submit "Sign up", class: 'button expand success'

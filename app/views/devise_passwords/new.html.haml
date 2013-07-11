@@ -7,7 +7,6 @@
         = f.label :email
       .columns.large-8
         = f.email_field :email, autofocus: true
-    .row
+    .row.actions
       .columns.large-12
         = f.submit "Send me reset password instructions", class: 'button expand'
-  = render "devise/shared/links"
