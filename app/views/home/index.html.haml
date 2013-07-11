@@ -1,7 +1,15 @@
-.columns.small-12.large-12
+.columns.small-12.large-12.panel
   %h1= site_title
+  %p
+    明和トレッキング部、明倫山岳会の交流の場。
+    山行のお供に。
+    H17卒のOBが作りました。
+  %p
+    初めての方は、左のボタンから。メールアドレスがあれば、簡単に登録できます。
+  %p
+    登録済みの方は、右のボタンからログインしてください。
   .row
     .columns.small-11.large-11.small-centered.large-centered
       .row
-        = link_to '初めての方', new_user_registration_path, class: 'radius button columns small-5 large-5'
+        = link_to '初めての方', new_user_registration_path, class: 'radius button columns small-5 large-5 success'
         = link_to 'ログインしてはじめる', new_user_session_path, class: 'radius button columns small-5 large-5 small-offset-2 large-offset-2'
