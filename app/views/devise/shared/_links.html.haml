@@ -1,10 +1,10 @@
-- if controller_name != 'sessions'
+- if controller_name != 'devise_sessions'
   = link_to make_page_title('devise_sessions', 'new'), new_session_path(resource_name)
   %br
-- if devise_mapping.registerable? && controller_name != 'registrations'
+- if devise_mapping.registerable? && controller_name != 'devise_registrations'
   = link_to make_page_title('devise_registrations', 'new'), new_registration_path(resource_name)
   %br
-- if devise_mapping.recoverable? && controller_name != 'passwords'
+- if devise_mapping.recoverable? && controller_name != 'devise_passwords'
   = link_to make_page_title('devise_passwords', 'new'), new_password_path(resource_name)
   %br
 - if devise_mapping.confirmable? && controller_name != 'confirmations'
