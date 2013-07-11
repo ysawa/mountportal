@@ -1,18 +1,23 @@
-.columns.small-12.large-12
+.columns.small-12.large-6.panel.large-centered
   %h1= make_page_title
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = devise_error_messages!
-    %div
-      = f.label :email
-      %br
-      = f.email_field :email, autofocus: true
-    %div
-      = f.label :password
-      %br
-      = f.password_field :password
-    %div
-      = f.label :password_confirmation
-      %br
-      = f.password_field :password_confirmation
-    %div= f.submit "Sign up"
+    .row
+      .columns.large-4
+        = f.label :email
+      .columns.large-8
+        = f.email_field :email, autofocus: true
+    .row
+      .columns.large-4
+        = f.label :password
+      .columns.large-8
+        = f.password_field :password
+    .row
+      .columns.large-4
+        = f.label :password_confirmation
+      .columns.large-8
+        = f.password_field :password_confirmation
+    .row
+      .columns.large-12
+        = f.submit "Sign up", class: 'button expand'
   = render "devise/shared/links"
