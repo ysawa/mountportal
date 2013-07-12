@@ -10,3 +10,6 @@
     .row.actions
       .columns.large-12
         = f.submit "Send me reset password instructions", class: 'button expand'
+
+= content_for :title do
+  #{make_page_title('devise_passwords', 'new')} | #{site_title}

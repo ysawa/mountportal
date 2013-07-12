@@ -1,5 +1,5 @@
 .columns.small-12.large-6.panel.large-centered
-  %h2= make_page_title('devise_passwords', 'new')
+  %h2= make_page_title('devise_registrations', 'new')
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = devise_error_messages!
     .row
@@ -20,3 +20,6 @@
     .row.actions
       .columns.large-12
         = f.submit "Sign up", class: 'button expand success'
+
+= content_for :title do
+  #{make_page_title('devise_registrations', 'new')} | #{site_title}

@@ -22,3 +22,6 @@
     .row.actions
       .columns.large-12
         = f.submit "Sign in", class: 'button expand'
+
+= content_for :title do
+  #{make_page_title('devise_sessions', 'new')} | #{site_title}
