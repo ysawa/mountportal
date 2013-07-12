@@ -19,7 +19,7 @@
         = f.password_field :password_confirmation
     .row.actions
       .columns.large-12
-        = f.submit "Sign up", class: 'button expand success'
+        = f.submit t('helpers.submit.sign_up'), class: 'button expand success'
 
 = content_for :title do
   #{make_page_title('devise_registrations', 'new')} | #{site_title}

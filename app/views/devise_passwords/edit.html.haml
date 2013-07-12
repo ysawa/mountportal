@@ -15,7 +15,7 @@
         = f.password_field :password_confirmation
     .row.actions
       .columns.large-12
-        = f.submit "Change my password"
+        = f.submit t('helpers.submit.change_my_password')
 
 = content_for :title do
   #{make_page_title('devise_passwords', 'edit')} | #{site_title}

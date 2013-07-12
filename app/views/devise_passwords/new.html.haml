@@ -9,7 +9,7 @@
         = f.email_field :email, autofocus: true
     .row.actions
       .columns.large-12
-        = f.submit "Send me reset password instructions", class: 'button expand'
+        = f.submit t('helpers.submit.send_me_reset_password_instructions'), class: 'button expand'
 
 = content_for :title do
   #{make_page_title('devise_passwords', 'new')} | #{site_title}

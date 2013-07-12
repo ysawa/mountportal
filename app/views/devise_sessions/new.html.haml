@@ -18,10 +18,10 @@
           = f.object.class.human_attribute_name(:remember_me)
     .row
       .columns.large-8.large-offset-4
-        = link_to make_page_title('devise_passwords', 'new'), new_user_password_path
+        = link_to t('helpers.links.forgot_my_password'), new_user_password_path
     .row.actions
       .columns.large-12
-        = f.submit "Sign in", class: 'button expand'
+        = f.submit t('helpers.submit.sign_in'), class: 'button expand'
 
 = content_for :title do
   #{make_page_title('devise_sessions', 'new')} | #{site_title}
