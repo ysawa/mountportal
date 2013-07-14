@@ -1,0 +1,9 @@
+.columns.small-12.large-12
+  %p#notice= notice
+  %p
+    %b Name:
+    = @trek.name
+
+  = link_to 'Edit', edit_trek_path(@trek)
+  \|
+  = link_to 'Back', treks_path
