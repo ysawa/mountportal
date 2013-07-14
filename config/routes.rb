@@ -2,7 +2,6 @@ Mountportal::Application.routes.draw do
   resources :treks
 
   namespace "about" do
-    get "privacy", as: :privacy
     get "tos", as: :tos
   end
   devise_for :users,
