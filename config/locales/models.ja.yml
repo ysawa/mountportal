@@ -1,6 +1,7 @@
 ja:
   attributes:
     created_at: '作成日時'
+    current_password: '現在のパスワード'
     email: 'メールアドレス'
     href: 'URL'
     id: 'ID'

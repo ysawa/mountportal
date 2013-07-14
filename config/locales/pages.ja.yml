@@ -10,6 +10,7 @@ ja:
       destroy: 'ログアウト'
       new: 'ログイン'
     devise_registrations:
+      edit: '設定'
       new: '新規登録'
     home:
       index: 'トップページ'
