@@ -5,12 +5,12 @@
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .row
       .columns.large-4
-        = f.label :email, nil, class: 'inline'
+        = f.label :email, nil, class: 'inline required'
       .columns.large-8
         = f.email_field :email, autofocus: true
     .row
       .columns.large-4
-        = f.label :password, nil, class: 'inline'
+        = f.label :password, nil, class: 'inline required'
       .columns.large-8
         = f.password_field :password
     - if devise_mapping.rememberable?

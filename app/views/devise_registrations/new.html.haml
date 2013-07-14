@@ -6,17 +6,17 @@
     = devise_error_messages!
     .row
       .columns.large-4
-        = f.label :email
+        = f.label :email, nil, class: 'inline required'
       .columns.large-8
         = f.email_field :email, autofocus: true
     .row
       .columns.large-4
-        = f.label :password
+        = f.label :password, nil, class: 'inline required'
       .columns.large-8
         = f.password_field :password
     .row
       .columns.large-4
-        = f.label :password_confirmation
+        = f.label :password_confirmation, nil, class: 'inline required'
       .columns.large-8
         = f.password_field :password_confirmation
     .row.actions

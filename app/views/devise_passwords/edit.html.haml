@@ -7,12 +7,12 @@
     = f.hidden_field :reset_password_token
     .row
       .columns.large-4
-        = f.label :password, "New password"
+        = f.label :password, User.human_attribute_name('new_password'), class: 'inline required'
       .columns.large-8
         = f.password_field :password, autofocus: true
     .row
       .columns.large-4
-        = f.label :password_confirmation, "Confirm new password"
+        = f.label :password_confirmation, nil, class: 'inline required'
       .columns.large-8
         = f.password_field :password_confirmation
     .row.actions

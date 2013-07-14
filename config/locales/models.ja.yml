@@ -17,4 +17,5 @@ ja:
       user: 'ユーザー'
     attributes:
       user:
+        new_password: '新しいパスワード'
         remember_me: '次回以降自動でログインする'
