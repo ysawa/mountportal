@@ -62,6 +62,12 @@ gem 'unicorn'
 
 gem 'jpmobile'
 
+# GridFS
+gem 'carrierwave'
+gem 'carrierwave-mongoid', github: 'carrierwaveuploader/carrierwave-mongoid', branch: 'mongoid-4.0'
+gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
+gem 'mini_magick'
+
 group :test do
   # Pretty printed test output
   gem 'turn', require: false

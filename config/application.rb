@@ -32,6 +32,9 @@ module Mountportal
 
     config.generators.stylesheet_engine = :sass
 
+    require 'serve_gridfs_data'
+    config.middleware.use "ServeGridfsData"
+
     if Rails.configuration.respond_to?(:sass)
       Rails.configuration.sass.tap do |config|
         config.preferred_syntax = :sass
