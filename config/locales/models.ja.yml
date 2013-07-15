@@ -19,6 +19,8 @@ ja:
     attributes:
       trek:
         name: '計画名'
+        scheduled_from: '集合予定'
+        scheduled_to: '解散予定'
       user:
         new_password: '新しいパスワード'
         remember_me: '次回以降自動でログインする'

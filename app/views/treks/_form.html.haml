@@ -6,10 +6,20 @@
         - @trek.errors.full_messages.each do |msg|
           %li= msg
   .row
-    .columns.large-2
+    .columns.large-3
       = f.label :name, nil, class: 'inline required'
-    .columns.large-10
+    .columns.large-9
       = f.text_field :name
+  .row
+    .columns.large-3
+      = f.label :scheduled_from, nil, class: 'inline'
+    .columns.large-9
+      = f.text_field :scheduled_from, value: (f.object.scheduled_from ? l(f.object.scheduled_from, format: :form) : nil)
+  .row
+    .columns.large-3
+      = f.label :scheduled_to, nil, class: 'inline'
+    .columns.large-9
+      = f.text_field :scheduled_to, value: (f.object.scheduled_to ? l(f.object.scheduled_to, format: :form) : nil)
   .row.actions
     .columns.large-12
       = f.submit t('helpers.submit.save'), class: 'button expand'
