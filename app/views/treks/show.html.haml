@@ -1,9 +1,14 @@
 .columns.small-12.large-12
-  %p#notice= notice
-  %p
-    %b Name:
+  %h2
     = @trek.name
 
-  = link_to 'Edit', edit_trek_path(@trek)
-  \|
-  = link_to 'Back', treks_path
+  - 3.times do
+    = render 'treks/trek', trek: @trek
+
+  = link_to 'Edit', edit_trek_path(@trek), class: 'button'
+
+= content_for :title do
+  - if @trek.name?
+    #{@trek.name} | #{site_title}
+  - else
+    #{make_page_title('treks', 'show')} | #{site_title}

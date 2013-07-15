@@ -1,4 +1,5 @@
 class TreksController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy, :edit, :new, :update]
   before_action :set_trek, only: [:destroy, :edit, :show, :update]
 
   # POST /treks

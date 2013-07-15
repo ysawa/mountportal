@@ -1,8 +1,7 @@
 .columns.small-12.large-12
-  %h1 Editing trek
+  %h2= make_page_title('treks', 'edit')
 
   = render 'form'
 
-  = link_to 'Show', @trek
-  \|
-  = link_to 'Back', treks_path
+= content_for :title do
+  #{make_page_title('treks', 'edit')} | #{site_title}

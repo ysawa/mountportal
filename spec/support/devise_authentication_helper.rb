@@ -1,11 +1,11 @@
 module DeviseAuthenticationHelper
-  def account_sign_in(account = nil)
-    @request.env["devise.mapping"] = Devise.mappings[:account]
-    if account
-      @account = account
+  def user_sign_in(user = nil)
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    if user
+      @user = user
     else
-      @account = account || Fabricate(:account)
+      @user = user || Fabricate(:user)
     end
-    sign_in @account
+    sign_in @user
   end
 end

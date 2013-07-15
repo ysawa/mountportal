@@ -21,17 +21,43 @@ describe TreksController do
   end
 
   describe "GET new" do
-    it "assigns a new trek as @trek" do
-      get :new, {}
-      assigns(:trek).should be_a_new(Trek)
+    context 'without singing in' do
+      it "redirects to sign in page" do
+        get :new, {}
+        response.should redirect_to new_user_session_path
+      end
+    end
+
+    context 'with singing in' do
+      before :each do
+        user_sign_in
+      end
+      it "assigns a new trek as @trek" do
+        get :new, {}
+        assigns(:trek).should be_a_new(Trek)
+      end
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested trek as @trek" do
-      trek = Trek.create! valid_attributes
-      get :edit, {id: trek.to_param}
-      assigns(:trek).should eq(trek)
+    context 'without singing in' do
+      it "redirects to sign in page" do
+        trek = Trek.create! valid_attributes
+        get :edit, {id: trek.to_param}
+        response.should redirect_to new_user_session_path
+      end
+    end
+
+    context 'with singing in' do
+      before :each do
+        user_sign_in
+      end
+
+      it "assigns the requested trek as @trek" do
+        trek = Trek.create! valid_attributes
+        get :edit, {id: trek.to_param}
+        assigns(:trek).should eq(trek)
+      end
     end
   end
 

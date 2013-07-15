@@ -5,9 +5,11 @@
       %ul
         - @trek.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions
-    = f.submit 'Save'
+  .row
+    .columns.large-2
+      = f.label :name, nil, class: 'inline required'
+    .columns.large-10
+      = f.text_field :name
+  .row.actions
+    .columns.large-12
+      = f.submit t('helpers.submit.save'), class: 'button expand'

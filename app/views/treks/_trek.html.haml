@@ -1,0 +1,19 @@
+.row.trek.feed
+  .small-2.large-1.columns
+    = image_tag 'http://placehold.it/80x80&text=[trek]'
+  .small-10.large-11.columns
+    %p
+      %strong some person said:
+      bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.
+    %ul.inline-list
+      %li
+        = link_to 'reply', '#'
+      %li
+        = link_to 'share', '#'
+    %h6 2 comments
+    - 2.times do
+      .row
+        .small-2.large-1.columns
+          = image_tag 'http://placehold.it/50x50&text=[face]'
+        .small-10.large-11.columns
+          %p bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. aute in reprehenderit

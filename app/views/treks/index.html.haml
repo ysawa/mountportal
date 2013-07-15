@@ -1,20 +1,7 @@
 .columns.small-12.large-12
-  %h1 Listing treks
 
-  %table
-    %tr
-      %th Name
-      %th
-      %th
-      %th
+  - @treks.each do |trek|
+    = render 'treks/feed', trek: trek
 
-    - @treks.each do |trek|
-      %tr
-        %td= trek.name
-        %td= link_to 'Show', trek
-        %td= link_to 'Edit', edit_trek_path(trek)
-        %td= link_to 'Destroy', trek, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-  %br
-
-  = link_to 'New Trek', new_trek_path
+= content_for :title do
+  #{make_page_title('treks', 'index')} | #{site_title}

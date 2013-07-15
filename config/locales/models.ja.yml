@@ -14,8 +14,11 @@ ja:
     attributes:
   mongoid:
     models:
+      trek: '山行'
       user: 'ユーザー'
     attributes:
+      trek:
+        name: '計画名'
       user:
         new_password: '新しいパスワード'
         remember_me: '次回以降自動でログインする'

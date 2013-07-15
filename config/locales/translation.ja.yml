@@ -4,6 +4,7 @@ ja:
       forgot_my_password: 'パスワードを忘れた方'
     submit:
       change_my_password: 'パスワードを変更する'
+      save: '保存する'
       send_me_reset_password_instructions: 'パスワード再設定する'
       sign_in: 'ログインする'
       sign_up: '会員登録する'
