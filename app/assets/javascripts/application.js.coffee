@@ -17,10 +17,13 @@
 #= require foundation
 #= require turbolinks
 #= require utils
+#= require_self
 #= require_tree .
 
-ready = ->
+$(document).ready ->
   $(document).foundation()
   $('input.date').datepicker
     dateFormat: 'yy/mm/dd'
-$(document).ready ready
+  $(document).on 'click', '.alert-box a.close', ->
+    $(this).parents('.alert-box').remove()
+    false
