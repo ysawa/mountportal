@@ -1,7 +1,14 @@
 ja:
   helpers:
+    buttons:
+      destroy_model: '%{model}を削除する'
+      edit_model: '%{model}を編集する'
     links:
       forgot_my_password: 'パスワードを忘れた方'
+    placeholders:
+      date: '未定の場合はそのまま。'
+      trek:
+        name: '山行計画のタイトルを入れてください。'
     submit:
       cancel_my_account: 'アカウントを削除する'
       change_my_password: 'パスワードを変更する'

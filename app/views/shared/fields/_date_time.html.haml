@@ -7,7 +7,7 @@
   .columns.large-3
     = f.label date_field_name, f.object.class.human_attribute_name(field_name), class: 'inline'
   .columns.large-6
-    = f.date_field date_field_name, class: 'date'
+    = f.date_field date_field_name, class: 'date', placeholder: t('helpers.placeholders.date')
   .columns.large-3
     - options = time_options_for_select
     = f.select time_field_name, options

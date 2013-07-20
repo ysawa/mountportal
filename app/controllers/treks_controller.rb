@@ -5,6 +5,7 @@ class TreksController < ApplicationController
   # POST /treks
   def create
     @trek = Trek.new(trek_params)
+    @trek.creator = current_user
 
     if @trek.save
       redirect_to @trek, notice: 'Trek was successfully created.'
@@ -25,7 +26,7 @@ class TreksController < ApplicationController
 
   # GET /treks
   def index
-    @treks = Trek.all
+    @treks = Trek.all.desc(:scheduled_from_date, :scheduled_from_time)
   end
 
   # GET /treks/new
@@ -40,7 +41,6 @@ class TreksController < ApplicationController
   # PATCH/PUT /treks/1
   def update
     if @trek.update(trek_params)
-      p @trek
       redirect_to @trek, notice: 'Trek was successfully updated.'
     else
       render action: 'edit'
