@@ -17,6 +17,7 @@
 #= require foundation/foundation
 #= require foundation/foundation.alerts
 #= require foundation/foundation.dropdown
+#= require foundation/foundation.placeholder
 #= require foundation/foundation.tooltips
 #= require foundation/foundation.topbar
 #= require utils
