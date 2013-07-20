@@ -11,6 +11,7 @@
 # about supported directives.
 #
 #= require jquery
+#= require jquery.turbolinks
 #= require jquery_ujs
 #= require jquery.ui.datepicker
 #= require foundation
@@ -23,8 +24,3 @@ ready = ->
   $('input.date').datepicker
     dateFormat: 'yy/mm/dd'
 $(document).ready ready
-
-each_page = ->
-
-$(document).ready each_page
-$(document).on 'page:load', each_page

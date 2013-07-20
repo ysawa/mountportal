@@ -1,0 +1,11 @@
+- if flash[:notice].present? || flash.now[:notice].present? || flash[:error].present? || flash.now[:error].present?
+  .row
+    .columns.small-12.large-12
+      - if flash[:notice].present? || flash.now[:notice].present?
+        .alert-box
+          = flash[:notice] || flash.now[:notice]
+          %a{ href: '#', class: 'close' } &times;
+      - elsif flash[:error] || flash.now[:error]
+        .alert-box.alert
+          = flash[:error] || flash.now[:error]
+          %a{ href: '#', class: 'close' } &times;
