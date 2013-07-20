@@ -11,11 +11,11 @@
 # about supported directives.
 #
 #= require jquery
+#= require turbolinks
 #= require jquery.turbolinks
 #= require jquery_ujs
 #= require jquery.ui.datepicker
 #= require foundation
-#= require turbolinks
 #= require utils
 #= require_self
 #= require_tree .
