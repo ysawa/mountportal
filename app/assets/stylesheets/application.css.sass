@@ -10,8 +10,8 @@
  *
  *= require structures
  *= require jquery.ui.datepicker
- *= require_self
  *= require foundation_and_overrides
+ *= require_self
  *= require_tree .
  */
 
@@ -29,3 +29,14 @@ ul.list
 select
   &.year, &.month, &.day, &.hour, &.minute
     width: auto
+
+.ui-datepicker
+  font-size: 0.9em
+  .ui-datepicker-title
+    line-height: 1.6
+  th.ui-datepicker-week-end
+    background-color: #eef
+    padding-top: .1em
+    padding-bottom: .1em
+    &:first
+      background-color: #fee

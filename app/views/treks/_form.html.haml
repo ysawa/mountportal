@@ -1,4 +1,4 @@
-= form_for @trek do |f|
+= form_for @trek, html: { class: 'custom' } do |f|
   - if @trek.errors.any?
     #error_explanation
       %h2= "#{pluralize(@trek.errors.count, "error")} prohibited this trek from being saved:"
@@ -12,9 +12,12 @@
       = f.text_field :name
   .row
     .columns.large-3
-      = f.label :scheduled_from, nil, class: 'inline'
-    .columns.large-9
-      = f.text_field :scheduled_from, value: (f.object.scheduled_from ? l(f.object.scheduled_from, format: :form) : nil), class: 'date'
+      = f.label :scheduled_from_date, f.object.class.human_attribute_name('scheduled_from'), class: 'inline'
+    .columns.large-6
+      = f.text_field :scheduled_from_date, class: 'date'
+    .columns.large-3
+      - options = time_options_for_select
+      = f.select :scheduled_from_time, options
   .row
     .columns.large-3
       = f.label :scheduled_to, nil, class: 'inline'

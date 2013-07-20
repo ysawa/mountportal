@@ -1,7 +1,9 @@
 class Trek
   include Mongoid::Document
+  include Mongoid::Timestamps
+  include Mongoid::DateTimeField
   field :name, type: String
-  field :scheduled_from, type: Time
-  field :scheduled_to, type: Time
+  date_time_field :scheduled_from
+  date_time_field :scheduled_to
   validates :name, presence: true
 end

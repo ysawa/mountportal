@@ -40,6 +40,7 @@ class TreksController < ApplicationController
   # PATCH/PUT /treks/1
   def update
     if @trek.update(trek_params)
+      p @trek
       redirect_to @trek, notice: 'Trek was successfully updated.'
     else
       render action: 'edit'
@@ -54,6 +55,6 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def trek_params
-    params.require(:trek).permit(:name, :scheduled_from, :scheduled_to)
+    params.require(:trek).permit(:name, :scheduled_from, :scheduled_to, :scheduled_from_date, :scheduled_to_date, :scheduled_from_time, :scheduled_to_time)
   end
 end

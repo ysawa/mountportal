@@ -15,8 +15,16 @@
 #= require jquery.ui.datepicker
 #= require foundation
 #= require turbolinks
+#= require utils
 #= require_tree .
 
-$ ->
+ready = ->
   $(document).foundation()
-  $('input.date').datepicker()
+  $('input.date').datepicker
+    dateFormat: 'yy/mm/dd'
+$(document).ready ready
+
+each_page = ->
+
+$(document).ready each_page
+$(document).on 'page:load', each_page
