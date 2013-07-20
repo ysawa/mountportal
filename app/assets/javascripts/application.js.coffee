@@ -11,19 +11,45 @@
 # about supported directives.
 #
 #= require jquery
-#= require turbolinks
-#= require jquery.turbolinks
 #= require jquery_ujs
+#= require jquery.pjax
 #= require jquery.ui.datepicker
-#= require foundation
+#= require foundation/foundation
+#= require foundation/foundation.alerts
+#= require foundation/foundation.dropdown
+#= require foundation/foundation.tooltips
+#= require foundation/foundation.topbar
 #= require utils
 #= require_self
 #= require_tree .
 
-$(document).ready ->
+$ = jQuery
+$.extend
+  on_pjax_load: (callback) ->
+    past_href = null
+    $ ->
+      callback()
+      past_href = location.href
+      $(document).on 'pjax:popstate', (e) ->
+        setTimeout(
+          ->
+            if past_href == location.href
+              callback()
+          , 50
+        )
+
+
+$ ->
+
   $(document).foundation()
-  $('input.date').datepicker
-    dateFormat: 'yy/mm/dd'
-  $(document).on 'click', '.alert-box a.close', ->
-    $(this).parents('.alert-box').remove()
-    false
+  unless Modernizr.inputtypes.date
+    $('input.date').datepicker
+      dateFormat: 'yy/mm/dd'
+
+  # Triggers of PJAX
+  $(document).pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])', '[data-pjax-container]')
+
+  # After PJAX requests, we can operate callbacks as we like.
+  on_pjax_reload = ->
+
+  $(document).on('ready pjax:end', on_pjax_reload)

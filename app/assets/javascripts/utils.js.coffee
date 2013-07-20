@@ -1,8 +1,7 @@
 # Japanese initialisation for the jQuery UI date picker plugin.
 # Written by Kentaro SATO (kentaro@ranvis.com).
 
-ready = ->
-  $.datepicker.regional ||= {}
+if $.datepicker && $.datepicker.regional
   $.datepicker.regional["ja"] =
     closeText: "閉じる"
     prevText: "&#x3C;前"
@@ -22,4 +21,3 @@ ready = ->
 
   $.datepicker.setDefaults $.datepicker.regional["ja"]
 
-$(document).ready ready

@@ -2,5 +2,5 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 %title= content_for?(:title) ? yield(:title) : site_title
 = stylesheet_link_tag    "application"
-= javascript_include_tag "vendor/custom.modernizr"
+= javascript_include_tag :modernizr
 = csrf_meta_tags
