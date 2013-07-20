@@ -7,8 +7,7 @@
   .columns.large-3
     = f.label date_field_name, f.object.class.human_attribute_name(field_name), class: 'inline'
   .columns.large-6
-    - value = (date ? l(date, format: :form_date) : nil)
-    = f.date_field date_field_name, class: 'date', value: value
+    = f.date_field date_field_name, class: 'date'
   .columns.large-3
     - options = time_options_for_select
     = f.select time_field_name, options
