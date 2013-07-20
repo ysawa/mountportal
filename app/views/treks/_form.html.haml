@@ -1,4 +1,4 @@
-= form_for @trek, html: { class: 'custom' } do |f|
+= form_for @trek do |f|
   - if @trek.errors.any?
     #error_explanation
       %h2= "#{pluralize(@trek.errors.count, "error")} prohibited this trek from being saved:"

@@ -12,6 +12,6 @@ module PagesHelper
   end
 
   def site_title
-    '明和トレックポータル'
+    'トレックポータル'
   end
 end

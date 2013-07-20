@@ -3,16 +3,21 @@
     %li.name
       %h1
         = link_to site_title, root_path
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    %li.toggle-topbar.menu-icon
+      %a{ href: "#" }
+        %span
+
   %section.top-bar-section
     %ul.right
-      %li.divider
+      %li.divider.hide-for-small
       - if user_signed_in?
         %li= link_to make_page_title('treks', 'new'), new_trek_path
-        %li.divider
+        %li.divider.hide-for-small
         %li= link_to make_page_title('devise_registrations', 'edit'), edit_user_registration_path
         %li.divider
         %li= link_to make_page_title('devise_sessions', 'destroy'), destroy_user_session_path, method: 'delete'
       - else
         %li= link_to make_page_title('devise_registrations', 'new'), new_user_registration_path
-        %li.divider
+        %li.divider.hide-for-small
         %li= link_to make_page_title('devise_sessions', 'new'), new_user_session_path

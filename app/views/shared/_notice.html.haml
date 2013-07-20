@@ -4,8 +4,8 @@
       - if flash[:notice].present? || flash.now[:notice].present?
         .alert-box
           = flash[:notice] || flash.now[:notice]
-          %a{ href: '#', class: 'close' } &times;
+          %a.close{ href: '#' } &times;
       - elsif flash[:error] || flash.now[:error]
         .alert-box.alert
           = flash[:error] || flash.now[:error]
-          %a{ href: '#', class: 'close' } &times;
+          %a.close{ href: '#' } &times;
