@@ -10,19 +10,8 @@
       = f.label :name, nil, class: 'inline required'
     .columns.large-9
       = f.text_field :name
-  .row
-    .columns.large-3
-      = f.label :scheduled_from_date, f.object.class.human_attribute_name('scheduled_from'), class: 'inline'
-    .columns.large-6
-      = f.text_field :scheduled_from_date, class: 'date'
-    .columns.large-3
-      - options = time_options_for_select
-      = f.select :scheduled_from_time, options
-  .row
-    .columns.large-3
-      = f.label :scheduled_to, nil, class: 'inline'
-    .columns.large-9
-      = f.text_field :scheduled_to, value: (f.object.scheduled_to ? l(f.object.scheduled_to, format: :form) : nil), class: 'date'
+  = render 'shared/fields/date_time', f: f, field_name: 'scheduled_from'
+  = render 'shared/fields/date_time', f: f, field_name: 'scheduled_to'
   .row.actions
     .columns.large-12
       = f.submit t('helpers.submit.save'), class: 'button expand'

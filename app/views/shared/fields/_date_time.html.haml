@@ -1,0 +1,13 @@
+- object = f.object
+- object_name = f.object_name
+- date_field_name = "#{field_name}_date"
+- time_field_name = "#{field_name}_time"
+.row
+  .columns.large-3
+    = f.label date_field_name, f.object.class.human_attribute_name(field_name), class: 'inline'
+  .columns.large-6
+    = f.text_field date_field_name, class: 'date'
+  .columns.large-3
+    - options = time_options_for_select
+    = f.select time_field_name, options
+
