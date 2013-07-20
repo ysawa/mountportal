@@ -33,23 +33,27 @@ $.extend
       $(document).on 'pjax:popstate', (e) ->
         setTimeout(
           ->
-            if past_href == location.href
+            if typeof past_href != 'undefined' && past_href == location.href
               callback()
           , 50
         )
+      $(document).on 'pjax:end', (e) ->
+        callback()
 
-
-$ ->
-
-  $(document).foundation()
+$.on_pjax_load ->
   unless Modernizr.inputtypes.date
+    $('input.date.hasDatepicker').removeClass('hasDatepicker')
     $('input.date').datepicker
       dateFormat: 'yy/mm/dd'
+
+$ ->
+  $(document).foundation()
 
   # Triggers of PJAX
   $(document).pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])', '[data-pjax-container]')
 
   # After PJAX requests, we can operate callbacks as we like.
   on_pjax_reload = ->
+    $('.top-bar.expanded').removeClass('expanded')
 
   $(document).on('ready pjax:end', on_pjax_reload)

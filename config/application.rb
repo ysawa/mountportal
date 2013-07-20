@@ -32,6 +32,9 @@ module Mountportal
 
     config.generators.stylesheet_engine = :sass
 
+    # use Pjax
+    config.middleware.use Rack::Pjax
+
     require 'serve_gridfs_data'
     config.middleware.use "ServeGridfsData"
 
