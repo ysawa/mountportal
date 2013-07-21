@@ -8,7 +8,6 @@ class Trek
   date_time_field :scheduled_to
   belongs_to :creator, class_name: 'User'
   validates :name, presence: true
-  attr_protected :creator_id
 
   index published: 1
   index scheduled_from_date: 1
