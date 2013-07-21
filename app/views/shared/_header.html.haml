@@ -21,6 +21,8 @@
         %li.divider
         %li= link_to make_page_title('devise_sessions', 'destroy'), destroy_user_session_path, method: 'delete'
       - else
+        %li= link_to make_page_title('treks', 'index'), treks_path
+        %li.divider.hide-for-small
         %li= link_to make_page_title('devise_registrations', 'new'), new_user_registration_path
         %li.divider.hide-for-small
         %li= link_to make_page_title('devise_sessions', 'new'), new_user_session_path

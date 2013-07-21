@@ -5,10 +5,26 @@ describe TreksController do
   let(:valid_attributes) { { "name" => "MyString" } }
 
   describe "GET index" do
-    it "assigns all treks as @treks" do
-      trek = Trek.create! valid_attributes
-      get :index, {}
-      assigns(:treks).should eq([trek])
+    before :each do
+      @published = Fabricate(:trek, published: true)
+      @unpublished = Fabricate(:trek, published: false)
+    end
+    context 'with NOT singing in' do
+      it "assigns published treks as @treks" do
+        get :index, {}
+        assigns(:treks).to_a.should == [@published]
+      end
+    end
+
+    context 'with singing in' do
+      before :each do
+        user_sign_in
+      end
+      it "assigns all treks as @treks" do
+        get :index, {}
+        assigns(:treks).to_a.should include @published
+        assigns(:treks).to_a.should include @unpublished
+      end
     end
   end
 

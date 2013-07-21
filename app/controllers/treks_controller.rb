@@ -28,9 +28,10 @@ class TreksController < ApplicationController
 
   # GET /treks
   def index
-    @treks = Trek.all
-    unless user_signed_in?
-      @treks = @treks.published
+    if user_signed_in?
+      @treks = Trek.all
+    else
+      @treks = Trek.published
     end
     @treks = @treks.desc(:scheduled_from_date, :scheduled_from_time)
   end
