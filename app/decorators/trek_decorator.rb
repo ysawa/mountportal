@@ -1,13 +1,19 @@
-class TrekDecorator < Draper::Decorator
+class TrekDecorator < ApplicationDecorator
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def scheduled_from
+    formatted_time(model.scheduled_from)
+  end
 
+  def scheduled_from_date
+    formatted_date(model.scheduled_from_date)
+  end
+
+  def scheduled_to
+    formatted_time(model.scheduled_to)
+  end
+
+  def scheduled_to_date
+    formatted_date(model.scheduled_to_date)
+  end
 end

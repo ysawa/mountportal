@@ -20,6 +20,8 @@ ja:
       sign_in: 'ログインする'
       sign_up: '会員登録する'
       update: '更新する'
+  messages:
+    unknown_schedule: '未定'
   notices:
     create: '%{model}を作成しました。'
     destroy: '%{model}を削除しました。'

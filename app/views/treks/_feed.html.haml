@@ -3,4 +3,11 @@
     = image_tag 'treks/trek.png'
   .small-10.large-11.columns
     %h2
-      = trek.name
+      = decorator.name
+    .info
+      - if trek.scheduled_from_date || trek.scheduled_to_date
+        = decorator.scheduled_from_date
+        〜
+        = decorator.scheduled_to_date
+      - else
+        = t('messages.unknown_schedule')

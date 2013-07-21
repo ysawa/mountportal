@@ -1,9 +1,6 @@
+- decorator = TrekDecorator.new(@trek)
 .columns.small-12.large-12
-  %h2
-    = @trek.name
-
-  - 3.times do
-    = render 'treks/trek', trek: @trek
+  = render 'treks/trek', trek: @trek, decorator: decorator
 
   .row
     .columns.small-12.large-12

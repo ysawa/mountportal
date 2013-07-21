@@ -1,7 +1,8 @@
 .columns.small-12.large-12
 
   - @treks.each do |trek|
-    = render 'treks/feed', trek: trek
+    - decorator = TrekDecorator.new(trek)
+    = render 'treks/feed', trek: trek, decorator: decorator
 
 = content_for :title do
   #{make_page_title('treks', 'index')} | #{site_title}
