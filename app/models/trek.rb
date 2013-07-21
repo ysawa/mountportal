@@ -3,7 +3,7 @@ class Trek
   include Mongoid::Timestamps
   include Mongoid::DateTimeField
   field :name, type: String
-  field :published, type: Boolean
+  field :published, type: Boolean, default: true
   date_time_field :scheduled_from
   date_time_field :scheduled_to
   belongs_to :creator, class_name: 'User'
@@ -17,11 +17,11 @@ class Trek
 
   class << self
     def published
-      critreia.where(published: true)
+      criteria.where(published: true)
     end
 
     def unpublished
-      critreia.where(published: true)
+      criteria.where(:published.ne => true)
     end
   end
 end
