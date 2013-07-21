@@ -34,6 +34,14 @@ class DeviseSessionsController < DeviseController
 
 protected
 
+  def after_sign_in_path_for(resource)
+    treks_path
+  end
+
+  def after_sign_out_path_for(resource_name)
+    root_path
+  end
+
   def sign_in_params
     devise_parameter_sanitizer.for(:sign_in)
   end

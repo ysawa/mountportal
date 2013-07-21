@@ -8,7 +8,8 @@ class TreksController < ApplicationController
     @trek.creator = current_user
 
     if @trek.save
-      redirect_to @trek, notice: 'Trek was successfully created.'
+      make_notice(Trek.model_name.human)
+      redirect_to @trek
     else
       render action: 'new'
     end
@@ -17,7 +18,8 @@ class TreksController < ApplicationController
   # DELETE /treks/1
   def destroy
     @trek.destroy
-    redirect_to treks_url, notice: 'Trek was successfully destroyed.'
+    make_notice(Trek.model_name.human)
+    redirect_to treks_url
   end
 
   # GET /treks/1/edit
@@ -41,7 +43,8 @@ class TreksController < ApplicationController
   # PATCH/PUT /treks/1
   def update
     if @trek.update(trek_params)
-      redirect_to @trek, notice: 'Trek was successfully updated.'
+      make_notice(Trek.model_name.human)
+      redirect_to @trek
     else
       render action: 'edit'
     end
