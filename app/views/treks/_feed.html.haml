@@ -1,6 +1,6 @@
-.row.trek.feed
+%a.row.trek.feed{ href: trek_path(trek) }
   .small-2.large-1.columns
     = image_tag 'http://placehold.it/80x80&text=[trek]'
   .small-10.large-11.columns
     %h2
-      = link_to trek.name, trek
+      = trek.name

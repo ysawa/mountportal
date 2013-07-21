@@ -1,4 +1,4 @@
-= form_for @trek do |f|
+= form_for @trek, html: { 'data-abide' => true } do |f|
   - if @trek.errors.any?
     #error_explanation
       %h2= "#{pluralize(@trek.errors.count, "error")} prohibited this trek from being saved:"
@@ -9,7 +9,9 @@
     .columns.large-3
       = f.label :name, nil, class: 'inline required'
     .columns.large-9
-      = f.text_field :name, placeholder: t('helpers.placeholders.trek.name')
+      = f.text_field :name, placeholder: t('helpers.placeholders.trek.name'), required: true
+      %small.error
+        = t('helpers.placeholders.trek.name')
   = render 'shared/fields/date_time', f: f, field_name: 'scheduled_from'
   = render 'shared/fields/date_time', f: f, field_name: 'scheduled_to'
   .row.actions

@@ -15,6 +15,7 @@
 #= require jquery.pjax
 #= require jquery.ui.datepicker
 #= require foundation/foundation
+#= require foundation/foundation.abide
 #= require foundation/foundation.alerts
 #= require foundation/foundation.dropdown
 #= require foundation/foundation.placeholder

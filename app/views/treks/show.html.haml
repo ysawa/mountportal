@@ -9,7 +9,7 @@
     .columns.small-12.large-12
       - if user_signed_in? && @trek.creator == current_user
         = link_to t('helpers.buttons.edit_model', model: Trek.model_name.human), edit_trek_path(@trek), class: 'button'
-        = link_to t('helpers.buttons.destroy_model', model: Trek.model_name.human), trek_path(@trek), method: 'delete', class: 'button alert', 'data-skip-ajax' => true
+        = link_to t('helpers.buttons.destroy_model', model: Trek.model_name.human), trek_path(@trek), method: 'delete', class: 'button alert', 'data-skip-ajax' => true, confirm: t('confirms.are_you_sure_you_want_to_delete_it')
 
 = content_for :title do
   - if @trek.name?
