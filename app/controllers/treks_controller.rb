@@ -28,12 +28,16 @@ class TreksController < ApplicationController
 
   # GET /treks
   def index
-    @treks = Trek.all.desc(:scheduled_from_date, :scheduled_from_time)
+    @treks = Trek.all
+    unless user_signed_in?
+      @treks = @treks.published
+    end
+    @treks = @treks.desc(:scheduled_from_date, :scheduled_from_time)
   end
 
   # GET /treks/new
   def new
-    @trek = Trek.new
+    @trek = Trek.new(published: true)
   end
 
   # GET /treks/1
@@ -58,6 +62,6 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def trek_params
-    params.require(:trek).permit(:name, :scheduled_from, :scheduled_to, :scheduled_from_date, :scheduled_to_date, :scheduled_from_time, :scheduled_to_time)
+    params.require(:trek).permit(:name, :published, :scheduled_from, :scheduled_to, :scheduled_from_date, :scheduled_to_date, :scheduled_from_time, :scheduled_to_time)
   end
 end

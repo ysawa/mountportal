@@ -20,6 +20,7 @@ ja:
       trek:
         creator: '作成者'
         name: '計画名'
+        published: '公開'
         scheduled_from: '集合予定'
         scheduled_to: '解散予定'
       user:

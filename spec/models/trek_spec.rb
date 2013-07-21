@@ -128,4 +128,26 @@ describe Trek do
       @trek.scheduled_to.sec.should == 0
     end
   end
+
+  describe '.published' do
+    before :each do
+      @published = Fabricate(:trek, published: true)
+      @unpublished = Fabricate(:trek, published: false)
+    end
+
+    it 'finds only published' do
+      Trek.published.to_a.should == [@published]
+    end
+  end
+
+  describe '.unpublished' do
+    before :each do
+      @published = Fabricate(:trek, published: true)
+      @unpublished = Fabricate(:trek, published: false)
+    end
+
+    it 'finds only unpublished' do
+      Trek.unpublished.to_a.should == [@unpublished]
+    end
+  end
 end

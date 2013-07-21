@@ -14,6 +14,16 @@
         = t('helpers.placeholders.trek.name')
   = render 'shared/fields/date_time', f: f, field_name: 'scheduled_from'
   = render 'shared/fields/date_time', f: f, field_name: 'scheduled_to'
+  .row
+    .columns.large-3
+      = f.label :published, nil, class: 'inline required'
+    .columns.large-9
+      = content_tag :label do
+        = f.radio_button :published, true
+        = t('statuses.published')
+      = content_tag :label do
+        = f.radio_button :published, false
+        = t('statuses.unpublished')
   .row.actions
     .columns.large-12
       = f.submit t('helpers.submit.save'), class: 'button expand'
