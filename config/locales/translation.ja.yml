@@ -12,6 +12,7 @@ ja:
       date: '未定の場合はそのまま。'
       trek:
         name: '山行計画のタイトルを入れてください。'
+        unpublished: '(外部の人に見られたくない場合はこちら)'
     submit:
       cancel_my_account: 'アカウントを削除する'
       change_my_password: 'パスワードを変更する'

@@ -24,6 +24,7 @@
       = content_tag :label do
         = f.radio_button :published, false
         = t('statuses.unpublished')
+        = t('helpers.placeholders.trek.unpublished')
   .row.actions
     .columns.large-12
       = f.submit t('helpers.submit.save'), class: 'button expand'
