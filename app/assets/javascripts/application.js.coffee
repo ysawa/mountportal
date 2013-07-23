@@ -58,4 +58,4 @@ $ ->
   on_pjax_reload = ->
     $('.top-bar.expanded').removeClass('expanded')
 
-  $(document).on('ready pjax:end', on_pjax_reload)
+  $(document).on('pjax:end', on_pjax_reload)
