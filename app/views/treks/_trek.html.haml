@@ -4,8 +4,8 @@
   .small-10.large-11.columns
     %h2
       = decorator.name
-    .info
       = decorator.published
+    .info
       - if trek.scheduled_from_date || trek.scheduled_to_date
         = decorator.scheduled_from_date
         〜
