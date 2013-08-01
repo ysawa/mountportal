@@ -1,6 +1,14 @@
 class TrekDecorator < ApplicationDecorator
   delegate_all
 
+  def published
+    if model.published?
+      h.content_tag :span, I18n.t('statuses.published'), class: 'label'
+    else
+      h.content_tag :span, I18n.t('statuses.unpublished'), class: 'label alert'
+    end
+  end
+
   def scheduled_from
     formatted_time(model.scheduled_from)
   end
