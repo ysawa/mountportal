@@ -5,17 +5,13 @@
     %h2
       = decorator.name
     .info
+      = decorator.published
       - if trek.scheduled_from_date || trek.scheduled_to_date
         = decorator.scheduled_from_date
         〜
         = decorator.scheduled_to_date
       - else
         = t('messages.unknown_schedule')
-    %ul.inline-list
-      %li
-        = link_to 'reply', '#'
-      %li
-        = link_to 'share', '#'
 - 2.times do
   .row.comment
     .small-2.large-1.columns
