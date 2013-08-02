@@ -1,4 +1,5 @@
 Mountportal::Application.routes.draw do
+  resources :profiles, only: %i(edit show update)
   resources :treks
 
   namespace "about" do
