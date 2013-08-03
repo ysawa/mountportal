@@ -28,7 +28,7 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def user_params
-    params.require(:user).permit(:make, :name)
+    params.require(:user).permit(:male, :name)
   end
 
   def user_should_be_current_user
