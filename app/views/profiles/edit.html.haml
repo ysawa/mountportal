@@ -1,2 +1,7 @@
-%h1 Profiles#edit
-%p Find me in app/views/profiles/edit.html.haml
+- decorator = UserDecorator.new(@user)
+.columns.small-12.large-6.panel.large-centered
+  %h2= make_page_title('profiles', 'edit')
+  = render 'profiles/form', user: @user
+
+= content_for :title do
+  #{make_page_title('profiles', 'edit')} | #{site_title}

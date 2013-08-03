@@ -13,6 +13,8 @@ ja:
       trek:
         name: '山行計画のタイトルを入れてください。'
         unpublished: '(外部の人に見られたくない場合はこちら)'
+      user:
+        name: 'みんなに呼んで欲しい名前を入れてください。'
     submit:
       cancel_my_account: 'アカウントを削除する'
       change_my_password: 'パスワードを変更する'
@@ -30,3 +32,5 @@ ja:
   statuses:
     published: '公開'
     unpublished: '非公開'
+  users:
+    profile: 'プロフィール'

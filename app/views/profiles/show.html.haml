@@ -1,2 +1,12 @@
-%h1 Profiles#show
-%p Find me in app/views/profiles/show.html.haml
+- decorator = UserDecorator.new(@user)
+.columns.small-12.large-12
+  = render 'profiles/user', user: @user, decorator: decorator
+
+  - if user_signed_in? && @user == current_user
+    .row
+      .columns.small-12.large-12
+        = link_to t('helpers.buttons.edit_model', model: t('users.profile')), edit_profile_path(@user), class: 'button'
+        = link_to t('helpers.buttons.edit_model', model: User.model_name.human), edit_user_registration_path, class: 'button'
+
+= content_for :title do
+  #{decorator.name} | #{site_title}

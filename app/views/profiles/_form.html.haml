@@ -1,0 +1,17 @@
+= form_for @user, url: profile_path(@user), html: { 'data-abide' => true } do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    .columns.large-3
+      = f.label :name, nil, class: 'inline required'
+    .columns.large-9
+      = f.text_field :name, placeholder: t('helpers.placeholders.user.name'), required: true
+      %small.error
+        = t('helpers.placeholders.user.name')
+  .row.actions
+    .columns.large-12
+      = f.submit t('helpers.submit.save'), class: 'button expand'

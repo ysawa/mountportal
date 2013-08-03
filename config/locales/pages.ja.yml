@@ -14,6 +14,9 @@ ja:
       new: '新規登録'
     home:
       index: 'トップページ'
+    profiles:
+      edit: 'プロフィール設定'
+      show: 'プロフィール'
     treks:
       edit: '山行計画'
       index: '山行一覧'
