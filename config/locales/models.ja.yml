@@ -25,5 +25,6 @@ ja:
         scheduled_from: '集合予定'
         scheduled_to: '解散予定'
       user:
+        male: '性別'
         new_password: '新しいパスワード'
         remember_me: '次回以降自動でログインする'

@@ -33,4 +33,7 @@ ja:
     published: '公開'
     unpublished: '非公開'
   users:
+    genders:
+      female: '女性'
+      male: '男性'
     profile: 'プロフィール'

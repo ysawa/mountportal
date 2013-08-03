@@ -12,6 +12,17 @@
       = f.text_field :name, placeholder: t('helpers.placeholders.user.name'), required: true
       %small.error
         = t('helpers.placeholders.user.name')
+  .row
+    .columns.large-3
+      = f.label :male, nil, class: 'inline required'
+    .columns.large-9
+      = content_tag :label do
+        = f.radio_button :male, true
+        = t('users.genders.male')
+      = content_tag :label do
+        = f.radio_button :male, false
+        = t('users.genders.female')
+
   .row.actions
     .columns.large-12
       = f.submit t('helpers.submit.save'), class: 'button expand'
