@@ -9,7 +9,7 @@
     .columns.large-3
       = f.label :name, nil, class: 'inline required'
     .columns.large-9
-      = f.text_field :name, placeholder: t('helpers.placeholders.user.name'), required: true
+      = f.text_field :name, placeholder: t('helpers.placeholders.user.name'), required: true, autofocus: true
       %small.error
         = t('helpers.placeholders.user.name')
   .row
