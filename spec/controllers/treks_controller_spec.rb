@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe TreksController do
 
+  before :each do
+    @user = Fabricate(:user)
+  end
+
   let(:valid_attributes) { { "name" => "MyString" } }
 
   describe "GET index" do
@@ -18,7 +22,7 @@ describe TreksController do
 
     context 'with singing in' do
       before :each do
-        user_sign_in
+        user_sign_in(@user)
       end
       it "assigns all treks as @treks" do
         get :index, {}
@@ -46,7 +50,7 @@ describe TreksController do
 
     context 'with singing in' do
       before :each do
-        user_sign_in
+        user_sign_in(@user)
       end
       it "assigns a new trek as @trek" do
         get :new, {}
@@ -66,7 +70,7 @@ describe TreksController do
 
     context 'with singing in' do
       before :each do
-        user_sign_in
+        user_sign_in(@user)
       end
 
       it "assigns the requested trek as @trek" do
@@ -87,7 +91,7 @@ describe TreksController do
 
     context 'with singing in' do
       before :each do
-        user_sign_in
+        user_sign_in(@user)
       end
 
       describe "with valid params" do
@@ -139,7 +143,7 @@ describe TreksController do
 
     context 'with singing in' do
       before :each do
-        user_sign_in
+        user_sign_in(@user)
       end
 
       describe "with valid params" do

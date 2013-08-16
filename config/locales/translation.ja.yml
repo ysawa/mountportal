@@ -28,6 +28,7 @@ ja:
   notices:
     create: '%{model}を作成しました。'
     destroy: '%{model}を削除しました。'
+    please_complete_first: 'まず%{model}を完成させてください。'
     update: '%{model}を更新しました。'
   statuses:
     published: '公開'

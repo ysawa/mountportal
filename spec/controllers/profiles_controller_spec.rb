@@ -53,7 +53,7 @@ describe ProfilesController do
 
       it "can edit @user_signed_in" do
         get 'edit', id: @user_signed_in.to_param
-        assigns(:user).should == @user
+        assigns(:user).should == @user_signed_in
         response.should be_success
       end
     end
@@ -81,8 +81,8 @@ describe ProfilesController do
 
       it "returns http success to @user_signed_in" do
         put 'update', id: @user_signed_in.to_param, user: { name: 'New Name' }
-        assigns(:user).should == @user
-        response.should redirect_to(profile_path(@user))
+        assigns(:user).should == @user_signed_in
+        response.should redirect_to(profile_path(@user_signed_in))
       end
     end
   end

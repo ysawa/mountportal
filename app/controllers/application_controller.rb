@@ -8,6 +8,7 @@ protected
   def current_user_should_be_completed
     if user_signed_in?
       unless current_user.completed?
+        flash[:notice] = t('notices.please_complete_first', model: t('users.profile'))
         redirect_to edit_profile_path(current_user)
       end
     else
