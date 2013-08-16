@@ -3,7 +3,7 @@
 %div{ id: image_container_name }
   - figure = f.object.public_send(image_name)
   - if figure.present? && figure.image?
-    = image_tag figure.image.url
+    = image_tag figure.image.thumb.url
 - image_field_name = "#{image_name}_id"
 - file_field_name = "#{image_name}_file"
 = f.hidden_field image_field_name
