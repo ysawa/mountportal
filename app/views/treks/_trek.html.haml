@@ -12,9 +12,12 @@
         = decorator.scheduled_to_date
       - else
         = t('messages.unknown_schedule')
-- 2.times do
+- trek.comments.each do |comment|
   .row.comment
     .small-2.large-1.columns
-      = UserDecorator.new(trek.creator).face
+      = UserDecorator.new(comment.author).face
     .small-10.large-11.columns
-      %p bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. aute in reprehenderit
+      %p
+        = comment.content
+- if user_signed_in?
+  = render 'comments/form_inline', trek: @trek, comment: Comment.new

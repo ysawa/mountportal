@@ -9,6 +9,7 @@ class Trek
   belongs_to :creator, class_name: 'User'
   belongs_to :picture, class_name: 'Figure'
   validates :name, presence: true
+  has_many :comments
 
   index published: 1
   index scheduled_from_date: 1

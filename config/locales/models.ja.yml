@@ -15,9 +15,13 @@ ja:
     attributes:
   mongoid:
     models:
+      comment: 'コメント'
       trek: '山行'
       user: 'ユーザー'
     attributes:
+      comment:
+        content: '内容'
+        trek: '山行'
       trek:
         creator: '作成者'
         name: '計画名'

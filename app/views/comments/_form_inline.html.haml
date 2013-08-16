@@ -9,8 +9,6 @@
     .small-2.large-1.columns
       = UserDecorator.new(current_user).face
     .small-10.large-11.columns
-      = f.text_field :content
-  .row.actions
-    .columns.large-12
+      = f.text_area :content
       = f.hidden_field :trek_id, value: trek.id.to_s
-      = f.submit t('helpers.submit.save'), class: 'button expand'
+      = f.submit t('helpers.submit.save'), class: 'button'

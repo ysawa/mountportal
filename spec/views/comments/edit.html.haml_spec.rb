@@ -2,9 +2,11 @@ require 'spec_helper'
 
 describe "comments/edit" do
   before(:each) do
+    @trek = assign(:trek, Fabricate(:trek))
     @comment = assign(:comment, stub_model(Comment,
       :content => "MyString"
     ))
+    user_sign_in
   end
 
   it "renders the edit comment form" do

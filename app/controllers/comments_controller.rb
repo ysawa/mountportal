@@ -8,16 +8,17 @@ class CommentsController < ApplicationController
   # POST /comments
   def create
     @comment = Comment.new(comment_params)
+    @comment.author = current_user
 
     if @comment.trek && @comment.save
-      make_notice Comment.model_name.human
       respond_with @comment do |format|
-        format.json do
+        format.json {
           render json: { message: 'OK' }
-        end
-        format.any do
+        }
+        format.html {
+          make_notice Comment.model_name.human
           redirect_to @comment.trek
-        end
+        }
       end
     else
       render json: { message: 'NG' }, status: 501
@@ -46,14 +47,14 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   def update
     if @comment.trek && @comment.update(comment_params)
-      make_notice Comment.model_name.human
       respond_with @comment do |format|
-        format.json do
+        format.json {
           render json: { message: 'OK' }
-        end
-        format.any do
+        }
+        format.html {
+          make_notice Comment.model_name.human
           redirect_to @comment.trek
-        end
+        }
       end
     else
       render json: { message: 'NG' }, status: 501
