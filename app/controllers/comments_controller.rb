@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy, :edit, :update]
+  respond_to :json, only: [:create, :index, :show, :update]
+  respond_to :html, :json, only: [:destroy]
+  before_action :authenticate_user!, only: [:create, :destroy, :edit, :index, :show, :update]
   before_action :current_user_should_be_completed, only: [:create, :destroy, :edit, :update]
   before_action :set_comment, only: [:destroy, :edit, :show, :update]
 
@@ -8,9 +10,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to @comment, notice: 'Comment was successfully created.'
+      render json: @comment
     else
-      render action: 'new'
+      render json: { message: 'NG' }, status: 501
     end
   end
 
@@ -36,9 +38,9 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   def update
     if @comment.update(comment_params)
-      redirect_to @comment, notice: 'Comment was successfully updated.'
+      render json: @comment
     else
-      render action: 'edit'
+      render json: { message: 'NG' }, status: 501
     end
   end
 
@@ -50,6 +52,6 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :trek_id)
   end
 end
