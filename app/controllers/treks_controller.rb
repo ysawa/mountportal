@@ -64,6 +64,6 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def trek_params
-    params.require(:trek).permit(:name, :published, :scheduled_from, :scheduled_to, :scheduled_from_date, :scheduled_to_date, :scheduled_from_time, :scheduled_to_time)
+    params.require(:trek).permit(:name, :picture_id, :published, :scheduled_from, :scheduled_to, :scheduled_from_date, :scheduled_to_date, :scheduled_from_time, :scheduled_to_time)
   end
 end

@@ -1,6 +1,15 @@
 class TrekDecorator < ApplicationDecorator
   delegate_all
 
+  def picture
+    if model.picture? && model.picture.image?
+      image_tag = h.image_tag model.picture.image.thumb.url
+    else
+      image_tag = h.image_tag 'treks/trek.png'
+    end
+    image_tag
+  end
+
   def published
     if model.published?
       h.content_tag :span, I18n.t('statuses.published'), class: 'label'

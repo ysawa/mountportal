@@ -1,3 +1,3 @@
 Fabricator(:figure) do
-  caption 'Test Image'
+  caption 'Test Figure'
 end

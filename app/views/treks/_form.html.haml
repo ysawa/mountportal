@@ -12,6 +12,12 @@
       = f.text_field :name, placeholder: t('helpers.placeholders.trek.name'), required: true, autofocus: true
       %small.error
         = t('helpers.placeholders.trek.name')
+  .row
+    .columns.large-3
+      = f.label :picture, nil, class: 'inline'
+    .columns.large-9
+      = render 'figures/fields/image', f: f, image_name: 'picture'
+
   = render 'shared/fields/date_time', f: f, field_name: 'scheduled_from'
   = render 'shared/fields/date_time', f: f, field_name: 'scheduled_to'
   .row
