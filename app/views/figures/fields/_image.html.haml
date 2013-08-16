@@ -17,8 +17,9 @@
   %div{ style: 'display: none', id: hidden_field_container_name }
   :coffee
     $.on_pjax_load ->
-      file_field = $('##{file_field_name}')
-      file_field.on 'change', ->
+      $file_field = $('##{file_field_name}')
+      $file_field.on 'change', ->
+        return unless $file_field.val()
         $el = $(@)
         $('##{hidden_field_container_name}').append($el)
         $el.upload(
@@ -34,8 +35,8 @@
                 image_url = data.data.thumb_image_url
                 $img = $('<img>').attr('src', image_url)
                 $('##{image_container_name}').append($img)
-              $("##{field_container_name}").append(file_field)
-              file_field.val('')
+              $("##{field_container_name}").append($file_field)
+              $file_field.val('')
           , 'json'
         )
         null
