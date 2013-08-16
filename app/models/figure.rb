@@ -11,6 +11,20 @@ class Figure
   mount_uploader :image, FigureImageUploader
   IMAGE_CONTENT_TYPES = %w(image/png image/bmp image/gif image/jpeg image/svg+xml)
 
+  def build_data
+    data = {
+      'id' => self.id.to_s
+    }
+    if content_image?
+      data['image_url'] = self.image.url
+      data['small_image_url'] = self.image.small.url
+      data['thumb_image_url'] = self.image.thumb.url
+    else
+      data['file_url'] = self.file.url
+    end
+    data
+  end
+
   def content
     if content_image?
       self.image
