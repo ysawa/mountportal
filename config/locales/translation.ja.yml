@@ -4,6 +4,7 @@ ja:
     are_you_sure_you_want_to_delete_it: '本当に削除しますか?'
   helpers:
     buttons:
+      configure_model: '%{model}を設定する'
       destroy_model: '%{model}を削除する'
       edit_model: '%{model}を編集する'
     links:
@@ -34,6 +35,7 @@ ja:
     published: '公開'
     unpublished: '非公開'
   users:
+    account: 'アカウント'
     genders:
       female: '女性'
       male: '男性'

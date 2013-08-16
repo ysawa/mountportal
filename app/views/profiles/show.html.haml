@@ -5,8 +5,8 @@
   - if user_signed_in? && @user == current_user
     .row
       .columns.small-12.large-12
-        = link_to t('helpers.buttons.edit_model', model: t('users.profile')), edit_profile_path(@user), class: 'button'
-        = link_to t('helpers.buttons.edit_model', model: User.model_name.human), edit_user_registration_path, class: 'button'
+        = link_to t('helpers.buttons.edit_model', model: t('users.profile')), edit_profile_path(@user), class: 'button success'
+        = link_to t('helpers.buttons.configure_model', model: t('users.account')), edit_user_registration_path, class: 'button'
 
 = content_for :title do
   #{decorator.name} | #{site_title}
