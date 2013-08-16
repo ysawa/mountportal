@@ -7,7 +7,7 @@ describe CommentsController do
     @trek = Fabricate(:trek)
   end
 
-  let(:valid_attributes) { { "content" => "MyString" } }
+  let(:valid_attributes) { { "content" => "MyString", "trek_id" => @trek.id.to_s } }
 
   describe "GET index" do
     context 'with NOT singing in' do

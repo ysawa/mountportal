@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  respond_to :json, only: [:create, :index, :show, :update]
-  respond_to :html, :json, only: [:destroy]
+  respond_to :json, only: [:index, :show]
+  respond_to :html, :json, only: [:create, :destroy, :update]
   before_action :authenticate_user!, only: [:create, :destroy, :edit, :index, :show, :update]
   before_action :current_user_should_be_completed, only: [:create, :destroy, :edit, :update]
   before_action :set_comment, only: [:destroy, :edit, :show, :update]
@@ -9,8 +9,16 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
 
-    if @comment.save
-      render json: @comment
+    if @comment.trek && @comment.save
+      make_notice Comment.model_name.human
+      respond_with @comment do |format|
+        format.json do
+          render json: { message: 'OK' }
+        end
+        format.any do
+          redirect_to @comment.trek
+        end
+      end
     else
       render json: { message: 'NG' }, status: 501
     end
@@ -37,8 +45,16 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /comments/1
   def update
-    if @comment.update(comment_params)
-      render json: @comment
+    if @comment.trek && @comment.update(comment_params)
+      make_notice Comment.model_name.human
+      respond_with @comment do |format|
+        format.json do
+          render json: { message: 'OK' }
+        end
+        format.any do
+          redirect_to @comment.trek
+        end
+      end
     else
       render json: { message: 'NG' }, status: 501
     end
