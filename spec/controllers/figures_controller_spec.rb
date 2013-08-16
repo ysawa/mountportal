@@ -25,6 +25,15 @@ describe FiguresController do
         Figure.count.should == 1
         Figure.first.image.should_not be_nil
       end
+
+      it "creates the correct JSON" do
+        Figure.count.should == 0
+        post 'create', figure: { content: @image }
+        response_hash = JSON.parse response.body
+        figure = Figure.last
+        response_hash['id'].should == figure.id.to_s
+        response_hash['message'].should == 'OK'
+      end
     end
 
     describe "DELETE 'destroy'" do

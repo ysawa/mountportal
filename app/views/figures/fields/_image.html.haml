@@ -29,7 +29,7 @@
           (data) ->
             if data and data.message != 'NG'
               $('##{object_name}_#{image_field_name}').val data.id
-              image_url = data.url
+              image_url = data.image_url
               $img = $('<img>').attr('src', image_url)
               $('##{image_container_name} img').remove()
               $('##{image_container_name}').append($img)
