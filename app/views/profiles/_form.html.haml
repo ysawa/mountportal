@@ -22,6 +22,11 @@
       = content_tag :label do
         = f.radio_button :male, false
         = t('users.genders.female')
+  .row
+    .columns.large-3
+      = f.label :face, nil, class: 'inline'
+    .columns.large-9
+      = render 'figures/fields/image', f: f, image_name: 'face'
 
   .row.actions
     .columns.large-12

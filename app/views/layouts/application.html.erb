@@ -13,10 +13,16 @@
       <%= render 'shared/notice' %>
       <div class="row" id="main">
         <%= yield %>
+        <%- if request.headers['X-PJAX'] && content_for?(:after_javascript) %>
+          <%= yield :after_javascript %>
+        <%- end %>
       </div>
     </div>
     <%= render 'shared/footer' %>
 
     <%= javascript_include_tag "application" %>
+    <%- if !request.headers['X-PJAX'] && content_for?(:after_javascript) %>
+      <%= yield :after_javascript %>
+    <%- end %>
   </body>
 </html>

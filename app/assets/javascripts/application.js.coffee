@@ -21,6 +21,7 @@
 #= require foundation/foundation.placeholder
 #= require foundation/foundation.tooltips
 #= require foundation/foundation.topbar
+#= require jquery.upload
 #= require utils
 #= require_self
 #= require_tree .

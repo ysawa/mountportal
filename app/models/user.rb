@@ -28,6 +28,8 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
 
+  belongs_to :face, class_name: 'Figure'
+
   def completed?
     return false if self.male.nil?
     attr_names = COMPLETED_ATTRIBUTES - [:male]
