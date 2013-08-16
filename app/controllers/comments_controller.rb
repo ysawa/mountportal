@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy, :edit, :update]
+  before_action :current_user_should_be_completed, only: [:create, :destroy, :edit, :update]
   before_action :set_comment, only: [:destroy, :edit, :show, :update]
 
   # POST /comments

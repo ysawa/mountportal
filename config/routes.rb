@@ -1,7 +1,7 @@
 Mountportal::Application.routes.draw do
-  resources :comments
 
-  resources :figures, only: [:create, :destroy]
+  resources :comments, only: %i(create destroy edit index show update)
+  resources :figures, only: %i(create destroy)
   resources :profiles, only: %i(edit show update)
   resources :treks
 
