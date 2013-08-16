@@ -1,5 +1,5 @@
 - decorator = UserDecorator.new(@user)
-.columns.small-12.large-12
+.columns.small-12.large-6.panel.large-centered
   = render 'profiles/user', user: @user, decorator: decorator
 
   - if user_signed_in? && @user == current_user

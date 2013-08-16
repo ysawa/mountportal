@@ -7,6 +7,7 @@ class Trek
   date_time_field :scheduled_from
   date_time_field :scheduled_to
   belongs_to :creator, class_name: 'User'
+  belongs_to :picture, class_name: 'Figure'
   validates :name, presence: true
 
   index published: 1
