@@ -9,11 +9,7 @@ class FiguresController < ApplicationController
     @figure = Figure.new(figure_params)
     @figure.user = current_user
     if @figure.save
-      if @figure.content_image?
-        render json: { id: @figure.id.to_s, image_url: @figure.image.url, message: 'OK' }
-      else
-        render json: { id: @figure.id.to_s, file_url: @figure.file.url, message: 'OK' }
-      end
+      render json: { id: @figure.id.to_s, data: @figure.build_data, message: 'OK' }
     else
       render json: { message: 'NG' }, status: 501
     end

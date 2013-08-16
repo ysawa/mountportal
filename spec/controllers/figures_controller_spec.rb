@@ -32,6 +32,13 @@ describe FiguresController do
         response_hash = JSON.parse response.body
         figure = Figure.last
         response_hash['id'].should == figure.id.to_s
+        response_hash['data']['id'].should == figure.id.to_s
+        response_hash['data']['image_url'].should be_present
+        response_hash['data']['image_url'].should figure.image.url
+        response_hash['data']['small_image_url'].should be_present
+        response_hash['data']['small_image_url'].should figure.image.small.url
+        response_hash['data']['thumb_image_url'].should be_present
+        response_hash['data']['thumb_image_url'].should figure.image.thumb.url
         response_hash['message'].should == 'OK'
       end
     end
