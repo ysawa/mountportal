@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 class Figure
   include Mongoid::Document
   include Mongoid::Timestamps

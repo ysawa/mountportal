@@ -1,4 +1,6 @@
 Mountportal::Application.routes.draw do
+  resources :comments
+
   resources :figures, only: [:create, :destroy]
   resources :profiles, only: %i(edit show update)
   resources :treks
