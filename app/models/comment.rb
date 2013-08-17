@@ -7,9 +7,14 @@ class Comment
   field :published, type: Mongoid::Boolean, default: true
   belongs_to :author, class_name: 'User'
   belongs_to :trek
+  before_validation :fill_in_acted_at
 
   index trek_id: 1
   index published: 1
   index acted_at: 1
   validates :content, presence: true
+
+  def fill_in_acted_at
+    self.acted_at ||= self.created_at || Time.now
+  end
 end
