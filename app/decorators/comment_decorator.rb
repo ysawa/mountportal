@@ -7,6 +7,12 @@ class CommentDecorator < ApplicationDecorator
     end
   end
 
+  def content
+    if model.content?
+      h.simple_format model.content
+    end
+  end
+
   def figure_image(html_options = {})
     html_options = html_options.stringify_keys
     if model.figure? && model.figure.image?
