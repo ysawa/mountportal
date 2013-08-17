@@ -7,5 +7,4 @@
       = decorator.content
     - if comment.figure && comment.figure.content_image? && comment.figure.image?
       .image_wrapper
-        = link_to comment.figure.image.url, 'data-skip-pjax' => true, class: 'swipebox' do
-          = image_tag comment.figure.image.small.url
+        = decorator.figure_image swipebox: true
