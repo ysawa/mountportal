@@ -32,6 +32,7 @@ class FigureImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  process :auto_orient
 
   # Create different versions of your uploaded files:
   version :small do
@@ -54,4 +55,10 @@ class FigureImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+  def auto_orient
+    manipulate! do |image|
+      image.auto_orient
+      image
+    end
+  end
 end
