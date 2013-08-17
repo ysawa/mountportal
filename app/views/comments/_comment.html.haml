@@ -4,7 +4,8 @@
   .small-10.large-11.columns.main_content
     = decorator.acted_at
     - if comment.figure && comment.figure.content_image? && comment.figure.image?
-      = link_to comment.figure.image.url, 'data-skip-pjax' => true, class: 'swipebox' do
-        = image_tag comment.figure.image.thumb.url
+      .image_wrapper
+        = link_to comment.figure.image.url, 'data-skip-pjax' => true, class: 'swipebox' do
+          = image_tag comment.figure.image.small.url
     %p
       = decorator.content

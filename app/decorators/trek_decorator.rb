@@ -1,11 +1,18 @@
 class TrekDecorator < ApplicationDecorator
   delegate_all
 
-  def picture
+  def picture(html_options = {})
+    html_options = html_options.stringify_keys
     if model.picture? && model.picture.image?
-      image_tag = h.image_tag model.picture.image.thumb.url
+      if html_options['swipebox']
+        html_options.delete 'swipebox'
+        image_tag = h.image_tag model.picture.image.thumb.url, html_options
+        image_tag = h.link_to image_tag, model.picture.image.url, class: 'swipebox'
+      else
+        image_tag = h.image_tag model.picture.image.thumb.url, html_options
+      end
     else
-      image_tag = h.image_tag 'treks/trek.png'
+      image_tag = h.image_tag 'treks/trek.png', html_options
     end
     image_tag
   end
