@@ -1,0 +1,6 @@
+.row.comment
+  .small-2.large-1.columns
+    = UserDecorator.new(comment.author).face
+  .small-10.large-11.columns.main_content
+    %p
+      = decorator.content

@@ -1,7 +1,7 @@
 .row.trek
   .small-2.large-1.columns
     = decorator.picture
-  .small-10.large-11.columns
+  .small-10.large-11.columns.main_content
     %h2
       = decorator.name
       = decorator.published
@@ -13,11 +13,6 @@
       - else
         = t('messages.unknown_schedule')
 - trek.comments.each do |comment|
-  .row.comment
-    .small-2.large-1.columns
-      = UserDecorator.new(comment.author).face
-    .small-10.large-11.columns
-      %p
-        = comment.content
+  = render 'comments/comment', comment: comment, decorator: CommentDecorator.new(comment)
 - if user_signed_in?
   = render 'comments/form_inline', trek: @trek, comment: Comment.new
