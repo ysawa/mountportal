@@ -69,6 +69,6 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def comment_params
-    params.require(:comment).permit(:content, :trek_id)
+    params.require(:comment).permit(:content, :figure_id, :trek_id)
   end
 end

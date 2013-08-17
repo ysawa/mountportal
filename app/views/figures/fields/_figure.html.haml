@@ -1,0 +1,42 @@
+- object_name = f.object_name
+- image_container_name = "#{field_name}_image"
+%div{ id: image_container_name }
+  - figure = f.object.public_send(field_name)
+  - if figure.present? && figure.image?
+    = image_tag figure.image.thumb.url
+- image_field_name = "#{field_name}_id"
+- file_field_name = "#{field_name}_file"
+= f.hidden_field image_field_name
+- field_container_name = "#{field_name}_field"
+- hidden_field_container_name = "hidden_#{field_name}_field"
+
+%div{ id: field_container_name }
+  = file_field_tag 'figure[content]', id: file_field_name
+
+= content_for :after_javascript do
+  %div{ style: 'display: none', id: hidden_field_container_name }
+  :coffee
+    $.on_pjax_load ->
+      $file_field = $('##{file_field_name}')
+      $file_field.on 'change', ->
+        return unless $file_field.val()
+        $el = $(@)
+        $('##{hidden_field_container_name}').append($el)
+        $el.upload(
+          '#{figures_path(format: :json)}',
+          {
+            '#{request_forgery_protection_token}': '#{form_authenticity_token}'
+          },
+          (data) ->
+            if data and data.message != 'NG'
+              $('##{object_name}_#{image_field_name}').val data.id
+              $('##{image_container_name} img').remove()
+              if data.data and data.data.thumb_image_url
+                image_url = data.data.thumb_image_url
+                $img = $('<img>').attr('src', image_url)
+                $('##{image_container_name}').append($img)
+              $("##{field_container_name}").append($file_field)
+              $file_field.val('')
+          , 'json'
+        )
+        null

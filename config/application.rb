@@ -43,6 +43,7 @@ module Mountportal
         config.preferred_syntax = :sass
       end
     end
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg)
 
     config.generators do |g|
       g.test_framework :rspec, fixture: false, views: true, requests: true, routing: true, helpers: true

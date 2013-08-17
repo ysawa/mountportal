@@ -22,6 +22,7 @@
 #= require foundation/foundation.tooltips
 #= require foundation/foundation.topbar
 #= require jquery.upload
+#= require jquery.swipebox
 #= require utils
 #= require_self
 #= require_tree .
@@ -44,6 +45,8 @@ $.extend
         callback()
 
 $.on_pjax_load ->
+  $("#swipebox-overlay").remove()
+  $('.swipebox').swipebox()
   unless Modernizr.inputtypes.date
     $('input.date.hasDatepicker').removeClass('hasDatepicker')
     $('input.date').datepicker

@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'modernizr-rails'
 
 # Use SCSS for stylesheets
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'sass-rails', '~> 4.0.0'
 gem 'zurb-foundation', github: 'zurb/foundation'
 

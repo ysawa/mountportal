@@ -6,6 +6,7 @@ class Comment
   date_time_field :acted_at
   field :published, type: Mongoid::Boolean, default: true
   belongs_to :author, class_name: 'User'
+  belongs_to :figure
   belongs_to :trek
   before_validation :fill_in_acted_at
 

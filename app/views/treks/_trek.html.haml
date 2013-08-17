@@ -13,7 +13,8 @@
         = decorator.scheduled_to_date
       - else
         = t('messages.unknown_schedule')
-- trek.comments.each do |comment|
-  = render 'comments/comment', comment: comment, decorator: CommentDecorator.new(comment)
+.comments{ 'data-clearing' => true }
+  - trek.comments.each do |comment|
+    = render 'comments/comment', comment: comment, decorator: CommentDecorator.new(comment)
 - if user_signed_in?
   = render 'comments/form_inline', trek: @trek, comment: Comment.new

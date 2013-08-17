@@ -10,5 +10,6 @@
       = UserDecorator.new(current_user).face
     .small-10.large-11.columns.main_content
       = f.text_area :content
+      = render 'figures/fields/figure', f: f, field_name: 'figure'
       = f.hidden_field :trek_id, value: trek.id.to_s
       = f.submit t('helpers.submit.submit'), class: 'button'
