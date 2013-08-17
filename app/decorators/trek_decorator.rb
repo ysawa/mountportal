@@ -6,8 +6,9 @@ class TrekDecorator < ApplicationDecorator
     if model.picture? && model.picture.image?
       if html_options['swipebox']
         html_options.delete 'swipebox'
+        title = html_options.delete 'swipebox_title'
         image_tag = h.image_tag model.picture.image.thumb.url, html_options
-        image_tag = h.link_to image_tag, model.picture.image.url, class: 'swipebox'
+        image_tag = h.link_to image_tag, model.picture.image.url, class: 'swipebox', 'data-skip-pjax' => true, title: title
       else
         image_tag = h.image_tag model.picture.image.thumb.url, html_options
       end
