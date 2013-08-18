@@ -38,6 +38,7 @@ $.extend
         setTimeout(
           ->
             if typeof past_href != 'undefined' && past_href == location.href
+              console.log 'pjax:popstate', new Date()
               callback()
           , 50
         )
@@ -45,8 +46,17 @@ $.extend
         callback()
 
 $.on_pjax_load ->
+  $('html').removeClass('swipebox')
   $("#swipebox-overlay").remove()
-  $('.swipebox').swipebox()
+  if $.swipebox
+    $.swipebox.isOpen = false
+  if $('a.swipebox').data('_swipebox') and $('a.swipebox').data('_swipebox').ui
+    # $('.swipebox').data('_swipebox').refresh()
+    $('a.swipebox').data('_swipebox').ui.closeSlide()
+  else
+    if $('a.swipebox').size() >= 1
+      $('a.swipebox').swipebox()
+
   unless Modernizr.inputtypes.date
     $('input.date.hasDatepicker').removeClass('hasDatepicker')
     $('input.date').datepicker
