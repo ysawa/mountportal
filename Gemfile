@@ -28,6 +28,9 @@ gem 'jquery-ui-rails'
 # gem 'turbolinks'
 # gem 'jquery-turbolinks'
 
+# mobile
+gem 'jpmobile'
+
 # Pjax
 gem 'rack-pjax'
 
