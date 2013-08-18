@@ -4,9 +4,9 @@
   - figure = f.object.public_send(image_name)
   - if figure.present? && figure.image?
     = image_tag figure.image.thumb.url
-- image_field_name = "#{image_name}_id"
 - file_field_name = "#{image_name}_file"
-= f.hidden_field image_field_name
+= f.hidden_field "#{image_name}_id"
+- image_field_id = "#{object_name}_#{image_name}_id"
 - field_container_name = "#{image_name}_field"
 - hidden_field_container_name = "hidden_#{image_name}_field"
 
@@ -22,6 +22,8 @@
         return unless $file_field.val()
         $el = $(@)
         $('##{hidden_field_container_name}').append($el)
+        $button = $('##{image_field_id}').parents('form').find('input[type="submit"], button')
+        $button.attr('disabled', true)
         $el.upload(
           '#{figures_path(format: :json)}',
           {
@@ -29,8 +31,9 @@
           },
           (data) ->
             if data and data.message != 'NG'
-              $('##{object_name}_#{image_field_name}').val data.id
+              $('##{image_field_id}').val data.id
               $('##{image_container_name} img').remove()
+              $button.removeAttr('disabled')
               if data.data and data.data.thumb_image_url
                 image_url = data.data.thumb_image_url
                 $img = $('<img>').attr('src', image_url)

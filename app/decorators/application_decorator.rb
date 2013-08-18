@@ -22,7 +22,7 @@ class ApplicationDecorator < Draper::Decorator
       title = h.truncate(title.gsub(/(\r\n|\r|\n)/, ' '), length: 10)
     end
     image_tag = h.image_tag thumb_image_url, html_options
-    link_tag = h.link_to image_tag, image_url, class: 'swipebox', 'data-skip-pjax' => true, title: title
+    link_tag = h.link_to image_tag, image_url, class: 'th swipebox', 'data-skip-pjax' => true, title: title
     link_tag
   end
 end
