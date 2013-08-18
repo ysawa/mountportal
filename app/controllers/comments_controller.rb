@@ -12,16 +12,27 @@ class CommentsController < ApplicationController
 
     if @comment.trek && @comment.save
       respond_with @comment do |format|
-        format.json {
+        format.json do
           render json: { message: 'OK' }
-        }
-        format.html {
+        end
+        format.html do
           make_notice Comment.model_name.human
           redirect_to @comment.trek
-        }
+        end
       end
     else
-      render json: { message: 'NG' }, status: 501
+      respond_with @comment do |format|
+        format.json do
+          render json: { message: 'NG' }, status: 501
+        end
+        format.html do
+          if @comment.trek
+            redirect_to @comment.trek
+          else
+            redirect_to root_path
+          end
+        end
+      end
     end
   end
 
@@ -57,7 +68,18 @@ class CommentsController < ApplicationController
         }
       end
     else
-      render json: { message: 'NG' }, status: 501
+      respond_with @comment do |format|
+        format.json do
+          render json: { message: 'NG' }, status: 501
+        end
+        format.html do
+          if @comment.trek
+            redirect_to @comment.trek
+          else
+            redirect_to root_path
+          end
+        end
+      end
     end
   end
 
