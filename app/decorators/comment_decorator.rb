@@ -17,7 +17,12 @@ class CommentDecorator < ApplicationDecorator
     html_options = html_options.stringify_keys
     if model.figure? && model.figure.image?
       if html_options['swipebox']
-        image_tag = swipebox(model.figure.image.url, model.figure.image.small.url, html_options)
+        if h.request.smart_phone?
+          image_url = model.figure.image.middle.url
+        else
+          image_url = model.figure.image.url
+        end
+        image_tag = swipebox(image_url, model.figure.image.small.url, html_options)
       else
         image_tag = h.image_tag model.figure.image.small.url, html_options
       end

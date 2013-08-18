@@ -35,6 +35,10 @@ class FigureImageUploader < CarrierWave::Uploader::Base
   process :auto_orient
 
   # Create different versions of your uploaded files:
+  version :middle do
+    process resize_to_limit: [1200, 1200]
+  end
+
   version :small do
     process resize_to_limit: [280, 280]
   end

@@ -5,7 +5,12 @@ class TrekDecorator < ApplicationDecorator
     html_options = html_options.stringify_keys
     if model.picture? && model.picture.image?
       if html_options['swipebox']
-        image_tag = swipebox(model.picture.image.url, model.picture.image.thumb.url, html_options)
+        if h.request.smart_phone?
+          image_url = model.picture.image.middle.url
+        else
+          image_url = model.picture.image.url
+        end
+        image_tag = swipebox(image_url, model.picture.image.thumb.url, html_options)
       else
         image_tag = h.image_tag model.picture.image.thumb.url, html_options
       end
