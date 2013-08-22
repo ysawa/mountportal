@@ -4,6 +4,9 @@
   .small-10.large-11.columns.main_content
     = decorator.acted_at
     = decorator.content
-    - if comment.figure && comment.figure.content_image? && comment.figure.image?
-      .image_wrapper
-        = decorator.figure_image swipebox: true, swipebox_class: 'swipebox th'
+    - if comment.figure
+      .figure_wrapper
+        - if comment.figure.content_image? && comment.figure.image?
+          = decorator.figure_image swipebox: true, swipebox_class: 'swipebox th'
+        - else
+          = decorator.figure_file

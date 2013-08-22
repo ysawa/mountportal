@@ -13,6 +13,16 @@ class CommentDecorator < ApplicationDecorator
     end
   end
 
+  def figure_file(html_options = {})
+    html_options = html_options.stringify_keys
+    if model.figure? && model.figure.content?
+      html_options['target'] = '_blank'
+      html_options['data-skip-pjax'] = true
+      link_tag = h.link_to model.figure.caption, model.figure.file.url, html_options
+      link_tag
+    end
+  end
+
   def figure_image(html_options = {})
     html_options = html_options.stringify_keys
     if model.figure? && model.figure.image?
