@@ -40,7 +40,7 @@ class FigureImageUploader < CarrierWave::Uploader::Base
   end
 
   version :small do
-    process resize_to_limit: [280, 280]
+    process resize_to_limit: [400, 400]
   end
 
   version :thumb do

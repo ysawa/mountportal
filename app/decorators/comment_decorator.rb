@@ -22,11 +22,23 @@ class CommentDecorator < ApplicationDecorator
         else
           image_url = model.figure.image.url
         end
-        image_tag = swipebox(image_url, model.figure.image.small.url, html_options)
+        unless html_options['swipebox_title']
+          html_options['swipebox_title'] = figure_caption
+        end
+        image_tag = h.swipebox(image_url, model.figure.image.small.url, html_options)
       else
         image_tag = h.image_tag model.figure.image.small.url, html_options
       end
       image_tag
+    end
+  end
+
+private
+  def figure_caption
+    if model.content
+      title = h.truncate(model.content.gsub(/(\r\n|\r|\n)/, ' '), length: 10)
+    else
+      ''
     end
   end
 end

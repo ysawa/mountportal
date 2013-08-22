@@ -25,6 +25,7 @@ describe Figure do
       data['small_image_url'].should == @figure.image.small.url
       data['thumb_image_url'].should be_present
       data['thumb_image_url'].should == @figure.image.thumb.url
+      data['caption'].should include 'rails.png'
     end
 
     it 'builds hash data of image for user' do
@@ -34,6 +35,7 @@ describe Figure do
       data['id'].should == @figure.id.to_s
       data['file_url'].should be_present
       data['file_url'].should == @figure.file.url
+      data['caption'].should include 'Gemfile'
     end
   end
 
@@ -44,15 +46,21 @@ describe Figure do
   end
 
   describe '#content' do
-    it 'detect file type and select the best uploader' do
+    it 'detect file type as image and select the best uploader' do
       sample_file = File.open(File.join(Rails.root, 'spec/fixtures/rails.png'))
       @figure.content = sample_file
       @figure.content_image?.should be_true
       @figure.content_file?.should be_false
+      @figure.caption.should include 'rails.png'
+      @figure.caption = nil
+    end
+
+    it 'detect file type as file and select the best uploader' do
       sample_file = File.open(File.join(Rails.root, 'Gemfile'))
       @figure.content = sample_file
       @figure.content_image?.should be_false
       @figure.content_file?.should be_true
+      @figure.caption.should include 'Gemfile'
     end
   end
 end

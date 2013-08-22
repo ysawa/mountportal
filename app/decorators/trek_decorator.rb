@@ -10,7 +10,10 @@ class TrekDecorator < ApplicationDecorator
         else
           image_url = model.picture.image.url
         end
-        image_tag = swipebox(image_url, model.picture.image.thumb.url, html_options)
+        unless html_options['swipebox_title']
+          html_options['swipebox_title'] = picture_caption
+        end
+        image_tag = h.swipebox(image_url, model.picture.image.thumb.url, html_options)
       else
         image_tag = h.image_tag model.picture.image.thumb.url, html_options
       end
@@ -42,5 +45,14 @@ class TrekDecorator < ApplicationDecorator
 
   def scheduled_to_date
     formatted_date(model.scheduled_to_date)
+  end
+
+private
+  def picture_caption
+    if model.name
+      name = h.truncate(model.name, length: 10)
+    else
+      ''
+    end
   end
 end

@@ -20,6 +20,7 @@ class Figure
     else
       data['file_url'] = self.file.url
     end
+    data['caption'] = self.caption
     data
   end
 
@@ -51,8 +52,10 @@ class Figure
     case uploader
     when ActionDispatch::Http::UploadedFile
       self.content_type = uploader.content_type
+      self.caption ||= uploader.original_filename
     when File
       path = uploader.path
+      self.caption ||= path
       mime_types = MIME::Types.type_for(path)
       if mime_types.present?
         self.content_type = mime_types.first.content_type
