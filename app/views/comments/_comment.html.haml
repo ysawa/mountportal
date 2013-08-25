@@ -2,7 +2,7 @@
   .small-2.large-1.columns
     = UserDecorator.new(comment.author).face
   .small-10.large-11.columns.main_content
-    = decorator.acted_at
+    = decorator.acted_at(only_time: true)
     = decorator.content
     - if comment.figure
       .figure_wrapper

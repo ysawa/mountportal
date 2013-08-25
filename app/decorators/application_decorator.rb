@@ -10,7 +10,13 @@ class ApplicationDecorator < Draper::Decorator
   def formatted_time(time, html_options = {})
     if time
       time = time.to_time
-      h.time_tag time, l(time), html_options
+      only_time = html_options.delete('only_time')
+      if only_time
+        text = l(time, format: :hour_minute)
+      else
+        text = l(time)
+      end
+      h.time_tag time, text, html_options
     end
   end
 end
