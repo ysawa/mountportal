@@ -11,6 +11,16 @@ class CommentDecorator < ApplicationDecorator
     end
   end
 
+  def acted_at_date(html_options = {})
+    html_options = html_options.stringify_keys
+    html_options.reverse_merge!(
+      'class' => 'acted_at_date'
+    )
+    if model.acted_at
+      formatted_date model.acted_at, html_options
+    end
+  end
+
   def content
     if model.content?
       h.simple_format model.content

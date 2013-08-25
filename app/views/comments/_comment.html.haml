@@ -1,7 +1,17 @@
+- if defined?(past_comment)
+  - list_mode = true
+- else
+  - list_mode = false
 .row.comment
+  - if list_mode
+    .small-12.large-2.columns
+      - if list_mode && (!past_comment || past_comment.acted_at.to_date != comment.acted_at.to_date)
+        = decorator.acted_at_date(format: :long)
+      - else
+        &nbsp;
   .small-2.large-1.columns
     = UserDecorator.new(comment.author).face
-  .small-10.large-11.columns.main_content
+  .small-10.columns.main_content{ class: (list_mode ? 'large-9' : 'large-11') }
     = decorator.acted_at(only_time: true)
     = decorator.content
     - if comment.figure

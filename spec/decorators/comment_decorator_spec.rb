@@ -23,4 +23,14 @@ describe CommentDecorator do
       @decorator.acted_at(only_time: true).should =~ />\d{2}:\d{2}<\/time>$/
     end
   end
+
+  describe '#acted_at_date' do
+    it 'generates text of acted_at_date' do
+      @comment.acted_at_date = nil
+      @decorator.acted_at_date.should be_blank
+      now = Time.now
+      @comment.acted_at_date = now
+      @decorator.acted_at_date.should_not be_blank
+    end
+  end
 end

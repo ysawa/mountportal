@@ -3,7 +3,8 @@ class ApplicationDecorator < Draper::Decorator
   def formatted_date(date, html_options = {})
     if date
       date = date.to_date
-      h.time_tag date, l(date), html_options
+      format = html_options.delete('format')
+      h.time_tag date, l(date, format: format), html_options
     end
   end
 
@@ -12,9 +13,11 @@ class ApplicationDecorator < Draper::Decorator
       time = time.to_time
       only_time = html_options.delete('only_time')
       if only_time
-        text = l(time, format: :hour_minute)
+        format = html_options.delete('format') || :hour_minute
+        text = l(time, format: format)
       else
-        text = l(time)
+        format = html_options.delete('format')
+        text = l(time, format: format)
       end
       h.time_tag time, text, html_options
     end

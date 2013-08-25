@@ -14,7 +14,9 @@
       - else
         = t('messages.unknown_schedule')
 .comments{ 'data-clearing' => true }
+  - past_comment = nil
   - trek.comments.each do |comment|
-    = render 'comments/comment', comment: comment, decorator: CommentDecorator.new(comment)
+    = render 'comments/comment', comment: comment, decorator: CommentDecorator.new(comment), past_comment: past_comment
+    - past_comment = comment
 - if user_signed_in?
   = render 'comments/form_inline', trek: @trek, comment: Comment.new

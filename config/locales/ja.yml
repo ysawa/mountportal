@@ -4,7 +4,7 @@ ja:
       default: "%Y/%m/%d"
       form: "%Y/%m/%d"
       form_date: "%Y/%m/%d"
-      long: "%Y年%m月%d日(%a)"
+      long: "%Y/%m/%d (%a)"
       short: "%m/%d"
       year_month: "%Y年%m月"
 
