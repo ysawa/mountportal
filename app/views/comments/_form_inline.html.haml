@@ -6,9 +6,9 @@
         - comment.errors.full_messages.each do |msg|
           %li= msg
   .row.comment
-    .small-2.large-1.columns
+    .small-2.large-1.columns{ class: (list_mode ? 'large-offset-2' : nil) }
       = UserDecorator.new(current_user).face
-    .small-10.large-11.columns.main_content
+    .small-10.columns.main_content{ class: list_mode ? 'large-9' : 'large-11' }
       = f.text_area :content
       = render 'figures/fields/figure', f: f, field_name: 'figure'
       = f.hidden_field :trek_id, value: trek.id.to_s
