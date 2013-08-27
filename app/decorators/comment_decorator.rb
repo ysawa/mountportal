@@ -2,21 +2,21 @@ class CommentDecorator < ApplicationDecorator
   delegate_all
 
   def acted_at(html_options = {})
-    html_options = html_options.stringify_keys
-    html_options.reverse_merge!(
-      'class' => 'acted_at'
-    )
     if model.acted_at
+      html_options = html_options.stringify_keys
+      html_options.reverse_merge!(
+        'class' => 'acted_at'
+      )
       formatted_time model.acted_at, html_options
     end
   end
 
   def acted_at_date(html_options = {})
-    html_options = html_options.stringify_keys
-    html_options.reverse_merge!(
-      'class' => 'acted_at_date'
-    )
     if model.acted_at
+      html_options = html_options.stringify_keys
+      html_options.reverse_merge!(
+        'class' => 'acted_at_date'
+      )
       formatted_date model.acted_at, html_options
     end
   end

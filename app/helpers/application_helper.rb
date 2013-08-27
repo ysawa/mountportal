@@ -1,5 +1,17 @@
 module ApplicationHelper
 
+  WDAY_LIST = %i(sun mon tue wed thu fri sat)
+
+  def make_wday_html_class(date_or_time)
+    case date_or_time
+    when Date, Time
+      wday = date_or_time.to_date.wday
+      WDAY_LIST[wday]
+    else
+      return
+    end
+  end
+
   def swipebox(image_url, thumb_image_url, html_options = {})
     html_options = html_options.stringify_keys
     html_options.delete 'swipebox'
