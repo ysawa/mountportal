@@ -15,7 +15,7 @@ class CommentDecorator < ApplicationDecorator
     if model.acted_at
       html_options = html_options.stringify_keys
       html_options.reverse_merge!(
-        'class' => 'acted_at_date'
+        'class' => "acted_at_date #{h.make_wday_html_class(model.acted_at)}"
       )
       formatted_date model.acted_at, html_options
     end
