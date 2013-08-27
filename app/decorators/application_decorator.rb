@@ -1,5 +1,10 @@
 class ApplicationDecorator < Draper::Decorator
 
+  def current_user
+    return @current_user if @current_user
+    @current_user = h.current_user if defined?(h.current_user)
+  end
+
   def formatted_date(date, html_options = {})
     if date
       date = date.to_date
@@ -21,5 +26,9 @@ class ApplicationDecorator < Draper::Decorator
       end
       h.time_tag time, text, html_options
     end
+  end
+
+  def user_signed_in?
+    !!current_user
   end
 end
