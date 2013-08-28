@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
         end
         format.html do
           make_notice Comment.model_name.human
-          redirect_to @comment.trek
+          redirect_to trek_path(@comment.trek, anchor: "comment_#{@comment.id.to_s}")
         end
       end
     else
@@ -74,7 +74,7 @@ class CommentsController < ApplicationController
         end
         format.html do
           if @comment.trek
-            redirect_to @comment.trek
+            redirect_to trek_path(@comment.trek, anchor: "comment_#{@comment.id.to_s}")
           else
             redirect_to root_path
           end

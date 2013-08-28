@@ -2,9 +2,19 @@
 .columns.small-12.large-12
   = render 'treks/trek', trek: @trek, decorator: decorator
 
-  .row
-    .columns
-      - if user_signed_in? && @trek.creator == current_user
+  - if user_signed_in?
+    = render 'comments/form_inline', trek: @trek, comment: Comment.new, list_mode: true
+  - else
+    .columns.small-12.large-8.panel.large-centered
+      %h2
+        登録して続きをお楽しみください。
+      %p
+
+      = render 'shared/welcome_actions'
+
+  - if user_signed_in? && @trek.creator == current_user
+    .row
+      .columns
         = link_to t('helpers.buttons.edit_model', model: Trek.model_name.human), edit_trek_path(@trek), class: 'button small'
         = link_to t('helpers.buttons.destroy_model', model: Trek.model_name.human), trek_path(@trek), method: 'delete', class: 'button alert small', 'data-skip-ajax' => true, confirm: t('confirms.are_you_sure_you_want_to_delete_it')
 

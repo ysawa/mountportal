@@ -1,4 +1,4 @@
-.row.comment
+.row.comment{ id: "comment_#{comment.id.to_s}" }
   - if list_mode
     .small-12.large-2.columns
       - if list_mode && (!past_comment || past_comment.acted_at.to_date != comment.acted_at.to_date)
