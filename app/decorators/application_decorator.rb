@@ -1,8 +1,7 @@
 class ApplicationDecorator < Draper::Decorator
 
   def current_user
-    return @current_user if @current_user
-    @current_user = h.current_user if defined?(h.current_user)
+    h.current_user
   end
 
   def formatted_date(date, html_options = {})
@@ -29,6 +28,6 @@ class ApplicationDecorator < Draper::Decorator
   end
 
   def user_signed_in?
-    !!current_user
+    h.user_signed_in?
   end
 end

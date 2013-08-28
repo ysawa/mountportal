@@ -21,10 +21,16 @@ describe UserDecorator do
       @decorator.face.should include 'female.png'
     end
 
-    it 'generates figure image' do
-      @figure = Fabricate(:image_figure)
-      @user.face = @figure
-      @decorator.face.should include @figure.image.thumb.url
+    context 'if user signed in' do
+      before :each do
+        user_sign_in
+      end
+
+      it 'generates figure image' do
+        @figure = Fabricate(:image_figure)
+        @user.face = @figure
+        @decorator.face.should include @figure.image.thumb.url
+      end
     end
   end
 end

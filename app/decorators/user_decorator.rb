@@ -2,7 +2,7 @@ class UserDecorator < ApplicationDecorator
   delegate_all
 
   def face
-    if model.face? && model.face.image?
+    if user_signed_in? && model.face? && model.face.image?
       image_tag = h.image_tag model.face.image.thumb.url
     elsif model.male?
       image_tag = h.image_tag 'users/male.png'

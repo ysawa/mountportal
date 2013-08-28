@@ -12,6 +12,7 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'capybara/rspec'
+  require 'draper/test/rspec_integration'
 
   Capybara.javascript_driver = :webkit
 
@@ -49,14 +50,14 @@ Spork.prefork do
     end
 
     # To test features using authentication
-    %w(controller decorator view).each do |type|
-      config.include Devise::TestHelpers, type: type.to_sym
-      config.include DeviseAuthenticationHelper, type: type.to_sym
+    %i(controller decorator view).each do |type|
+      config.include Devise::TestHelpers, type: type
+      config.include DeviseAuthenticationHelper, type: type
     end
 
-    %w(decorator request view).each do |type|
-      config.include IntegrationTestHelper, type: type.to_sym
-      config.include MobileTestHelper, type: type.to_sym
+    %i(decorator request view).each do |type|
+      config.include IntegrationTestHelper, type: type
+      config.include MobileTestHelper, type: type
     end
 
     # == Mock Framework
