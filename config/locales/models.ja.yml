@@ -13,6 +13,9 @@ ja:
   activemodel:
     models:
     attributes:
+  defaults:
+    user:
+      content: 'こんにちは!'
   mongoid:
     models:
       comment: 'コメント'

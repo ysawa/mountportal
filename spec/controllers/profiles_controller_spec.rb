@@ -2,6 +2,13 @@ require 'spec_helper'
 
 describe ProfilesController do
 
+  def valid_attributes(attributes = {})
+    attributes.stringify_keys.reverse_merge(
+      'name' => 'New Name',
+      'content' => 'New Content'
+    )
+  end
+
   before :each do
     @user = Fabricate(:user, name: 'not_signed_in')
     @user_signed_in = Fabricate(:user, name: 'signed_in')
@@ -72,16 +79,19 @@ describe ProfilesController do
         user_sign_in(@user_signed_in)
       end
 
-      it "cannot update @user" do
-        put 'update', id: @user.to_param, user: { name: 'New Name' }
+      it "cannot update another @user" do
+        put 'update', id: @user.to_param, user: valid_attributes
         assigns(:user).should == @user
         @user.reload
         response.should redirect_to(profile_path(@user))
       end
 
       it "returns http success to @user_signed_in" do
-        put 'update', id: @user_signed_in.to_param, user: { name: 'New Name' }
+        put 'update', id: @user_signed_in.to_param, user: valid_attributes
         assigns(:user).should == @user_signed_in
+        @user_signed_in.reload
+        @user_signed_in.content.should == valid_attributes['content']
+        @user_signed_in.name.should == valid_attributes['name']
         response.should redirect_to(profile_path(@user_signed_in))
       end
     end

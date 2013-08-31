@@ -7,7 +7,7 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  field :content, type: String, default: ''
+  field :content, type: String, default: -> { I18n.t('defaults.user.content') }
   field :male, type: Mongoid::Boolean
   field :name, type: String, default: ''
 
