@@ -1,7 +1,7 @@
 class UserDecorator < ApplicationDecorator
   delegate_all
 
-  def content(html_options)
+  def content(html_options = {})
     if model.content?
       h.simple_format model.content, html_options
     end
