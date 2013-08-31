@@ -7,7 +7,7 @@
           %li= msg
   .row.comment
     .small-2.large-1.columns{ class: (list_mode ? 'large-offset-2' : nil) }
-      = UserDecorator.new(current_user).face
+      = UserDecorator.new(current_user).face(user_signed_in: user_signed_in?)
     .small-10.columns.main_content{ class: list_mode ? 'large-9' : 'large-11' }
       = f.text_area :content
       = render 'figures/fields/figure', f: f, field_name: 'figure'
