@@ -68,7 +68,7 @@ $ ->
   $(document).pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])', '[data-pjax-container]')
   $(document).on 'pjax:timeout', (e) ->
     # Prevent default timeout redirection behavior
-    event.preventDefault()
+    e.preventDefault()
 
   # After PJAX requests, we can operate callbacks as we like.
   on_pjax_reload = ->
