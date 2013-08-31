@@ -30,6 +30,7 @@ ja:
         scheduled_from: '集合予定'
         scheduled_to: '解散予定'
       user:
+        content: 'プロフィール'
         face: 'アイコン'
         male: '性別'
         new_password: '新しいパスワード'

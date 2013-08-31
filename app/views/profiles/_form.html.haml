@@ -27,6 +27,11 @@
       = f.label :face, nil, class: 'inline'
     .columns.large-9
       = render 'figures/fields/image', f: f, image_name: 'face'
+  .row
+    .columns.large-3
+      = f.label :content, nil, class: 'inline required'
+    .columns.large-9
+      = f.text_area :content, placeholder: t('helpers.placeholders.user.content'), required: true
 
   .row.actions
     .columns.large-12

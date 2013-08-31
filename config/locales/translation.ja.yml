@@ -15,6 +15,7 @@ ja:
         name: '山行計画のタイトルを入れてください。'
         unpublished: '(外部の人に見られたくない場合はこちら)'
       user:
+        content: '自己紹介を入れてください。'
         name: 'みんなに呼んで欲しい名前を入れてください。'
     submit:
       cancel_my_account: 'アカウントを削除する'
