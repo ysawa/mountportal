@@ -6,7 +6,7 @@
       - else
         &nbsp;
   .small-2.large-1.columns
-    = UserDecorator.new(comment.author).face
+    = decorator.author.face(user_signed_in: user_signed_in?)
   .small-10.columns.main_content{ class: (list_mode ? 'large-9' : 'large-11') }
     = decorator.acted_at(only_time: true)
     = decorator.content

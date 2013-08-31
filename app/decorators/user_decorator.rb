@@ -11,7 +11,8 @@ class UserDecorator < ApplicationDecorator
     html_options = html_options.stringify_keys.reverse_merge(
       'class' => 'face'
     )
-    if user_signed_in? && model.face? && model.face.image?
+    user_signed_in = html_options.delete 'user_signed_in'
+    if user_signed_in && model.face? && model.face.image?
       image_tag = h.image_tag model.face.image.thumb.url, html_options
     elsif model.male?
       image_tag = h.image_tag 'users/male.png', html_options

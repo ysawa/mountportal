@@ -1,5 +1,6 @@
 class CommentDecorator < ApplicationDecorator
   delegate_all
+  decorates_association :author
 
   def acted_at(html_options = {})
     if model.acted_at

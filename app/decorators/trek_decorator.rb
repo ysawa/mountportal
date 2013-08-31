@@ -1,5 +1,6 @@
 class TrekDecorator < ApplicationDecorator
   delegate_all
+  decorates_association :author
 
   def picture(html_options = {})
     html_options = html_options.stringify_keys
