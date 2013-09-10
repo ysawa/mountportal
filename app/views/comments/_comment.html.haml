@@ -8,6 +8,11 @@
   .small-2.large-1.columns
     = decorator.author.face(user_signed_in: user_signed_in?)
   .small-10.columns.main_content{ class: (list_mode ? 'large-9' : 'large-11') }
+    -# TODO
+    -# if current_user == comment.author
+      = link_to '#', title: t('messages.modify_comment_acted_at'), class: 'modify_acted_at' do
+        = decorator.acted_at(only_time: true)
+    -# else
     = decorator.acted_at(only_time: true)
     = decorator.content
     - if comment.figure

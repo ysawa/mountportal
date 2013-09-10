@@ -27,6 +27,7 @@ ja:
       sign_up: '会員登録する'
       update: '更新する'
   messages:
+    modify_comment_acted_at: '日時を変更します。'
     unknown_schedule: '未定'
   notices:
     create: '%{model}を作成しました。'
