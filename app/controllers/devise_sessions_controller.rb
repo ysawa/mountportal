@@ -43,7 +43,7 @@ protected
   end
 
   def sign_in_params
-    devise_parameter_sanitizer.for(:sign_in)
+    devise_parameter_sanitizer.sanitize(:sign_in)
   end
 
   def serialize_options(resource)
