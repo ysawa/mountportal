@@ -146,14 +146,17 @@
 					});
 				}
 
-
+        /*
+         * these are not necessary it is compatible by css by ysawa
+         */
+        /*
 				if(supportSVG){
 					var bg = $('#swipebox-action #swipebox-close').css('background-image');
-					bg = bg.replace('png', 'svg');
 					$('#swipebox-action #swipebox-prev,#swipebox-action #swipebox-next,#swipebox-action #swipebox-close').css({
 						'background-image' : bg
 					});
 				}
+        */
 
 				$.each( elements,  function(){
 					$('#swipebox-slider').append('<div class="slide"></div>');
