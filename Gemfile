@@ -54,6 +54,7 @@ gem 'bourbon'
 
 # Use Devise to authenticate users
 gem 'devise', github: 'plataformatec/devise'
+gem 'devise-encryptable'
 
 # Use The Decorator Pattern
 gem 'draper'
