@@ -43,6 +43,7 @@ group :doc do
 end
 
 # DB
+gem 'moped', require: 'moped'
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
