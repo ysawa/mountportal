@@ -43,7 +43,7 @@ group :doc do
 end
 
 # DB
-gem 'mongoid', github: 'mongoid/mongoid'
+gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
 # Geocoding
