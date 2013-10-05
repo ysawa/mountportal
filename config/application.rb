@@ -35,8 +35,8 @@ module Mountportal
     # use Pjax
     config.middleware.use Rack::Pjax
 
-    # require 'serve_gridfs_data'
-    # config.middleware.use "ServeGridfsData"
+    require 'serve_gridfs_data'
+    config.middleware.use "ServeGridfsData"
 
     if Rails.configuration.respond_to?(:sass)
       Rails.configuration.sass.tap do |config|
