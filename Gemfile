@@ -43,7 +43,7 @@ group :doc do
 end
 
 # DB
-gem 'moped', require: 'moped'
+gem 'moped', '2.0.0.beta2'
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
@@ -77,7 +77,7 @@ gem 'jpmobile'
 # GridFS
 gem 'carrierwave'
 gem 'carrierwave-mongoid', github: 'carrierwaveuploader/carrierwave-mongoid'
-gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
+gem 'mongoid-grid_fs', github: 'starpeak/mongoid-grid_fs' # github: 'ahoward/mongoid-grid_fs'
 gem 'mini_magick'
 
 group :test do
