@@ -6,7 +6,7 @@ describe ServeGridfsData do
 
   before :each do
     @png_figure = Fabricate.build(:figure)
-    @png_file = File.open(File.join(Rails.root, '/spec/fixtures/rails.png'))
+    @png_file = File.open(File.join(Rails.root, '/spec/fixtures/images/rails.png'))
     @png_figure.image = @png_file
     @png_figure.save
     class TestDataUploader < CarrierWave::Uploader::Base

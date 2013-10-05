@@ -65,4 +65,14 @@ class FigureImageUploader < CarrierWave::Uploader::Base
       image
     end
   end
+
+  def get_exif(name)
+    manipulate! do |img|
+      return img["EXIF:" + name]
+    end
+  end
+
+  def get_exif_date_time_original
+    get_exif('DateTimeOriginal') rescue nil
+  end
 end

@@ -71,4 +71,15 @@ class Figure
       self.content_size = self.file.size
     end
   end
+
+  def content_image_time
+    return @content_image_time if @content_image_time
+    return nil unless content_image?
+    time = self.image.get_exif_date_time_original
+    return nil if time.blank?
+    time = time.sub(/(\d{2,4})\D(\d{1,2})\D(\d{1,2}) (\d{1,2})\D(\d{1,2})\D(\d{1,2})/, '\1-\2-\3 \4:\5:\6')
+    @content_image_time = Time.parse time
+  rescue
+    nil
+  end
 end
