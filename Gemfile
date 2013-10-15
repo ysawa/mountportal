@@ -76,7 +76,7 @@ gem 'jpmobile'
 # GridFS
 gem 'carrierwave'
 gem "carrierwave-mongoid", git: "git://github.com/jnicklas/carrierwave-mongoid.git"
-gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
+gem 'mongoid-grid_fs', github: 'gautamrege/mongoid-grid_fs'
 gem 'mini_magick'
 
 group :test do
