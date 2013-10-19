@@ -43,6 +43,7 @@ module Mountportal
         config.preferred_syntax = :sass
       end
     end
+    config.assets.enabled = true
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg)
 
     config.generators do |g|

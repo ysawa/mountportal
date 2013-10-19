@@ -4,10 +4,11 @@ class Comment
   include Mongoid::DateTimeField
   field :content, type: String
   date_time_field :acted_at
-  field :published, type: Mongoid::Boolean, default: true
+  field :published, type: Boolean, default: true
   belongs_to :author, class_name: 'User'
   belongs_to :figure
   belongs_to :trek
+  attr_accessible :acted_at, :content, :figure_id, :trek_id
   before_validation :fill_in_acted_at
 
   index trek_id: 1

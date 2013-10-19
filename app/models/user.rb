@@ -8,7 +8,7 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
 
   field :content, type: String, default: -> { I18n.t('defaults.user.content') }
-  field :male, type: Mongoid::Boolean
+  field :male, type: Boolean
   field :name, type: String, default: ''
 
   ## Database authenticatable
@@ -30,6 +30,7 @@ class User
   field :last_sign_in_ip,    type: String
 
   belongs_to :face, class_name: 'Figure'
+  attr_accessible :content, :face_id, :male, :name
 
   def completed?
     return false if self.male.nil?

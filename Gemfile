@@ -1,28 +1,28 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '3.2.15'
 
 gem 'haml-rails'
 gem 'modernizr-rails'
-
-# Use SCSS for stylesheets
-gem 'sprockets-rails', :require => 'sprockets/railtie'
-gem 'sass-rails', '~> 4.0.0'
 gem 'zurb-foundation', "4.3.2"
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 3.2.1'
+gem 'sass-rails',   '~> 3.2.3'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', :platforms => :ruby
+
+gem 'uglifier', '>= 1.0.3'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
+
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
@@ -43,8 +43,14 @@ group :doc do
 end
 
 # DB
-gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
+gem 'mongoid', '~> 3'
 gem 'bson_ext'
+
+# GridFS
+gem 'carrierwave'
+gem 'carrierwave-mongoid'
+gem 'mongoid-grid_fs'
+gem 'mini_magick'
 
 # Geocoding
 gem 'geocoder'
@@ -72,12 +78,6 @@ gem 'unicorn'
 # gem 'debugger', group: [:development, :test]
 
 gem 'jpmobile'
-
-# GridFS
-gem 'carrierwave'
-gem "carrierwave-mongoid", git: "git://github.com/jnicklas/carrierwave-mongoid.git"
-gem 'mongoid-grid_fs', github: 'gautamrege/mongoid-grid_fs'
-gem 'mini_magick'
 
 group :test do
   # Pretty printed test output

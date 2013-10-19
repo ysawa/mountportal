@@ -1,7 +1,7 @@
 class TreksController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy, :edit, :new, :update]
-  before_action :current_user_should_be_completed, only: [:create, :destroy, :edit, :new, :update]
-  before_action :set_trek, only: [:destroy, :edit, :show, :update]
+  before_filter :authenticate_user!, only: [:create, :destroy, :edit, :new, :update]
+  before_filter :current_user_should_be_completed, only: [:create, :destroy, :edit, :new, :update]
+  before_filter :set_trek, only: [:destroy, :edit, :show, :update]
 
   # POST /treks
   def create
@@ -64,6 +64,6 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def trek_params
-    params.require(:trek).permit(:name, :picture_id, :published, :scheduled_from, :scheduled_to, :scheduled_from_date, :scheduled_to_date, :scheduled_from_time, :scheduled_to_time)
+    params[:trek] # .require(:trek).permit(:name, :picture_id, :published, :scheduled_from, :scheduled_to, :scheduled_from_date, :scheduled_to_date, :scheduled_from_time, :scheduled_to_time)
   end
 end

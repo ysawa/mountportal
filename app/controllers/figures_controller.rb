@@ -32,6 +32,6 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def figure_params
-    params.require(:figure).permit(:content)
+    params[:figure] # .require(:figure).permit(:content)
   end
 end

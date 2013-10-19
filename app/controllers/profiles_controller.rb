@@ -1,8 +1,8 @@
 class ProfilesController < ApplicationController
 
-  before_action :authenticate_user!, only: [:edit, :show, :update]
-  before_action :set_user, only: [:edit, :show, :update]
-  before_action :user_should_be_current_user, only: [:edit, :update]
+  before_filter :authenticate_user!, only: [:edit, :show, :update]
+  before_filter :set_user, only: [:edit, :show, :update]
+  before_filter :user_should_be_current_user, only: [:edit, :update]
 
   def edit
   end
@@ -11,7 +11,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    @user.attributes = user_params
+    if @user.save
       make_notice(User.model_name.human)
       redirect_to profile_path(@user)
     else
@@ -28,7 +29,7 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def user_params
-    params.require(:user).permit(:content, :face_id, :male, :name)
+    params[:user] # .require(:user).permit(:content, :face_id, :male, :name)
   end
 
   def user_should_be_current_user

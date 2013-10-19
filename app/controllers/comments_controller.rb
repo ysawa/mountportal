@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
   respond_to :json, only: [:index, :show]
   respond_to :html, :json, only: [:create, :destroy, :update]
-  before_action :authenticate_user!, only: [:create, :destroy, :edit, :index, :show, :update]
-  before_action :current_user_should_be_completed, only: [:create, :destroy, :edit, :update]
-  before_action :set_comment, only: [:destroy, :edit, :show, :update]
+  before_filter :authenticate_user!, only: [:create, :destroy, :edit, :index, :show, :update]
+  before_filter :current_user_should_be_completed, only: [:create, :destroy, :edit, :update]
+  before_filter :set_comment, only: [:destroy, :edit, :show, :update]
 
   # POST /comments
   def create
@@ -57,7 +57,8 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /comments/1
   def update
-    if @comment.trek && @comment.update(comment_params)
+    @comment.attributes = comment_params
+    if @comment.trek && @comment.save
       respond_with @comment do |format|
         format.json {
           render json: { message: 'OK' }
@@ -91,6 +92,6 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def comment_params
-    params.require(:comment).permit(:acted_at, :content, :figure_id, :trek_id)
+    params[:comment] # .require(:comment).permit(:acted_at, :content, :figure_id, :trek_id)
   end
 end

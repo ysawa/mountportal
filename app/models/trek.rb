@@ -3,11 +3,13 @@ class Trek
   include Mongoid::Timestamps
   include Mongoid::DateTimeField
   field :name, type: String
-  field :published, type: Mongoid::Boolean, default: true
+  field :published, type: Boolean, default: true
   date_time_field :scheduled_from
   date_time_field :scheduled_to
   belongs_to :creator, class_name: 'User'
   belongs_to :picture, class_name: 'Figure'
+  attr_accessible :name, :picture_id, :published, :scheduled_from, :scheduled_to, :scheduled_from_date, :scheduled_to_date, :scheduled_from_time, :scheduled_to_time
+
   validates :name, presence: true
   has_many :comments
 
