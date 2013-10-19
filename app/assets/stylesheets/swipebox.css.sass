@@ -80,19 +80,20 @@ html.swipebox
 #swipebox-action, #swipebox-caption
   position: absolute
   left: 0
-  z-index: 999
   height: 50px
   width: 100%
 
 #swipebox-action
-  bottom: -50px
+  top: -50px
+  z-index: 1000
   &.visible-bars
-    bottom: 0
+    top: 0
   &.force-visible-bars
-    bottom: 0!important
+    top: 0!important
 
 #swipebox-caption
   top: -50px
+  z-index: 999
   text-align: center
   &.visible-bars
     top: 0
@@ -191,25 +192,21 @@ html.swipebox
  *--------------------------
 
 #swipebox-overlay
-  background: #0d0d0d
-
-#swipebox-action, #swipebox-caption
-  text-shadow: 1px 1px 1px black
-  background-color: #0d0d0d
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0d0d0d), color-stop(100%, black))
-  background-image: -webkit-linear-gradient(#0d0d0d, black)
-  background-image: -moz-linear-gradient(#0d0d0d, black)
-  background-image: -o-linear-gradient(#0d0d0d, black)
-  background-image: linear-gradient(#0d0d0d, black)
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=95)
-  opacity: 0.95
-
-#swipebox-action
-  border-top: 1px solid rgba(255, 255, 255, 0.2)
+  background: #aaa
 
 #swipebox-caption
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2)
-  color: white!important
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+  color: #333 !important
   font-size: 15px
   line-height: 43px
   font-family: Helvetica, Arial, sans-serif
+
+  text-shadow: 1px 1px 1px black
+  background-color: #aaa
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #aaa), color-stop(100%, #bbb))
+  background-image: -webkit-linear-gradient(#aaa, #bbb)
+  background-image: -moz-linear-gradient(#aaa, #bbb)
+  background-image: -o-linear-gradient(#aaa, #bbb)
+  background-image: linear-gradient(#aaa, #bbb)
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=95)
+  opacity: 0.95
