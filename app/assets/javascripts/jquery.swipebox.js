@@ -312,7 +312,7 @@
 				if(this.doCssTrans()){
 					bars.addClass('visible-bars');
 				}else{
-					// $('#swipebox-caption').animate({ top : 0 }, 500);
+					$('#swipebox-caption').animate({ top : 0 }, 500);
 					$('#swipebox-action').animate({ top : 0 }, 500);
 					setTimeout(function(){
 						bars.addClass('visible-bars');
@@ -325,7 +325,7 @@
 				if(this.doCssTrans()){
 					bars.removeClass('visible-bars');
 				}else{
-					// $('#swipebox-caption').animate({ top : '-50px' }, 500);
+					$('#swipebox-caption').animate({ top : '-50px' }, 500);
 					$('#swipebox-action').animate({ top : '-50px' }, 500);
 					setTimeout(function(){
 						bars.removeClass('visible-bars');
