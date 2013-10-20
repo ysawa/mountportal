@@ -14,11 +14,15 @@
     .small-10.columns.main_content{ class: list_mode ? 'large-9' : 'large-11' }
       .comment_fields{ style: (hidden ? 'display: none;' : nil) }
         = f.text_area :content, required: true
-        = render 'figures/fields/figure', f: f, field_name: 'figure'
+        - unless defined? parent
+          = render 'figures/fields/figure', f: f, field_name: 'figure'
         - unless comment.trek
           = f.hidden_field :trek_id, value: trek.id.to_s
         - if defined? parent
           = f.hidden_field :parent_id, value: parent.id.to_s
-        = f.submit t('helpers.submit.submit'), class: 'button'
+        - button_html_classes = %w(button)
+        - if defined? parent
+          - button_html_classes << 'small'
+        = f.submit t('helpers.submit.submit'), class: button_html_classes
       - if defined? parent
         = link_to t('helpers.links.comment_this_parent'), '#', class: 'comment_link'
