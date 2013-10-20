@@ -3,3 +3,4 @@ $.on_pjax_load ->
     $el = $(@)
     $el.hide()
     $el.siblings('.comment_fields').show()
+    false
