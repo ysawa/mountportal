@@ -1,4 +1,9 @@
-- comment_html_classes = (defined?(parent) ? 'child' : nil)
+- comment_html_classes = []
+- if defined? parent
+  - comment_html_classes << 'child'
+- else
+  - comment_html_classes << cycle('odd', 'even', name: 'comment_odd_even')
+
 - hidden = defined?(hidden) && hidden
 
 = form_for comment do |f|

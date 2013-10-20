@@ -1,4 +1,8 @@
-- comment_html_classes = (comment.parent? ? 'child' : nil)
+- comment_html_classes = []
+- if comment.parent?
+  - comment_html_classes << 'child'
+- else
+  - comment_html_classes << cycle('odd', 'even', name: 'comment_odd_even')
 .row.comment{ id: "comment_#{comment.id.to_s}", class: comment_html_classes }
   - if list_mode
     .small-12.large-2.columns
