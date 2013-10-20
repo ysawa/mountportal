@@ -8,7 +8,7 @@ ja:
       destroy_model: '%{model}を削除する'
       edit_model: '%{model}を編集する'
     links:
-      comment: 'コメントする'
+      comment_this_parent: 'この書き込みにコメントする'
       forgot_my_password: 'パスワードを忘れた方'
     placeholders:
       date: '未定の場合はそのまま。'
