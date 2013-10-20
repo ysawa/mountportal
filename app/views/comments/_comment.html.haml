@@ -1,4 +1,5 @@
-.row.comment{ id: "comment_#{comment.id.to_s}" }
+- comment_html_classes = (comment.parent? ? 'child' : nil)
+.row.comment{ id: "comment_#{comment.id.to_s}", class: comment_html_classes }
   - if list_mode
     .small-12.large-2.columns
       - if list_mode && (!past_comment || past_comment.acted_at.to_date != comment.acted_at.to_date)
