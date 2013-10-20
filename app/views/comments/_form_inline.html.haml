@@ -1,4 +1,6 @@
 - comment_html_classes = (defined?(parent) ? 'child' : nil)
+- hidden = defined?(hidden) && hidden
+
 = form_for comment do |f|
   - if comment.errors.any?
     #error_explanation
@@ -10,10 +12,12 @@
     .small-2.large-1.columns{ class: (list_mode ? 'large-offset-2' : nil) }
       = UserDecorator.new(current_user).face(user_signed_in: user_signed_in?)
     .small-10.columns.main_content{ class: list_mode ? 'large-9' : 'large-11' }
-      = f.text_area :content
-      = render 'figures/fields/figure', f: f, field_name: 'figure'
-      - unless comment.trek
-        = f.hidden_field :trek_id, value: trek.id.to_s
-      - if defined? parent
-        = f.hidden_field :parent_id, value: parent.id.to_s
-      = f.submit t('helpers.submit.submit'), class: 'button'
+      .comment_fields{ style: (hidden ? 'display: none;' : nil) }
+        = f.text_area :content, required: true
+        = render 'figures/fields/figure', f: f, field_name: 'figure'
+        - unless comment.trek
+          = f.hidden_field :trek_id, value: trek.id.to_s
+        - if defined? parent
+          = f.hidden_field :parent_id, value: parent.id.to_s
+        = f.submit t('helpers.submit.submit'), class: 'button'
+      = link_to t('helpers.links.comment'), '#', class: 'comment_link'

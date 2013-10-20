@@ -28,4 +28,4 @@
           - if child.parent_id == comment.id
             = render 'comments/comment', comment: child, decorator: CommentDecorator.new(child), list_mode: false, trek: trek
       - unless comment.parent?
-        = render 'comments/form_inline', comment: Comment.new, list_mode: false, trek: trek, parent: comment
+        = render 'comments/form_inline', comment: Comment.new, list_mode: false, trek: trek, parent: comment, hidden: true
