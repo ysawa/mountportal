@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   # POST /comments
   def create
     @comment = Comment.new(comment_params)
+    @comment.parent = @comment.parent
     @comment.author = current_user
 
     if @comment.trek && @comment.save

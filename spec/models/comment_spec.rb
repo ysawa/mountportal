@@ -15,6 +15,22 @@ describe Comment do
     end
   end
 
+  describe '#children' do
+    before :each do
+      @comment = Fabricate(:comment)
+      @parent_comment = Fabricate(:comment)
+    end
+
+    it 'finds the children of the comment' do
+      @comment.children.to_a.should == []
+      @parent_comment.children.to_a.should == []
+      @comment.parent = @parent_comment
+      @comment.save
+      @comment.children.to_a.should == []
+      @parent_comment.children.to_a.should == [@comment]
+    end
+  end
+
   describe '#content' do
     it 'is required' do
       comment = Comment.new(content: '')
@@ -27,6 +43,21 @@ describe Comment do
       comment = Comment.new(acted_at: nil, content: '')
       comment.fill_in_acted_at
       comment.acted_at.should_not be_blank
+    end
+  end
+
+  describe '#parent' do
+    before :each do
+      @comment = Fabricate(:comment)
+      @parent_comment = Fabricate(:comment)
+    end
+
+    it 'finds the parent of the comment' do
+      @comment.parent.should be_nil
+      @parent_comment.parent.should be_nil
+      @comment.parent = @parent_comment
+      @comment.parent.should == @parent_comment
+      @parent_comment.parent.should be_nil
     end
   end
 end

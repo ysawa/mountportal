@@ -11,5 +11,8 @@
     .small-10.columns.main_content{ class: list_mode ? 'large-9' : 'large-11' }
       = f.text_area :content
       = render 'figures/fields/figure', f: f, field_name: 'figure'
-      = f.hidden_field :trek_id, value: trek.id.to_s
+      - unless comment.trek
+        = f.hidden_field :trek_id, value: trek.id.to_s
+      - if defined? parent
+        = f.hidden_field :parent_id, value: parent.id.to_s
       = f.submit t('helpers.submit.submit'), class: 'button'

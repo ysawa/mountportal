@@ -8,7 +8,9 @@ class Comment
   belongs_to :author, class_name: 'User'
   belongs_to :figure
   belongs_to :trek
-  attr_accessible :acted_at, :content, :figure_id, :trek_id
+  belongs_to :parent, class_name: 'Comment'
+  has_many :children, inverse_of: :parent, class_name: 'Comment'
+  attr_accessible :acted_at, :content, :figure_id, :parent_id, :trek_id
   before_validation :fill_in_acted_at
 
   index trek_id: 1

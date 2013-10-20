@@ -21,3 +21,8 @@
           = decorator.figure_image swipebox: true, swipebox_class: 'swipebox th'
         - else
           = decorator.figure_file
+    - if user_signed_in?
+      - comment.children.each do |child|
+        = render 'comments/comment', comment: child, decorator: CommentDecorator.new(child), list_mode: false
+      - unless comment.parent?
+        = render 'comments/form_inline', comment: Comment.new, list_mode: false, trek: comment.trek, parent: comment

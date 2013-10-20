@@ -146,7 +146,7 @@ describe CommentsController do
           # specifies that the Comment created on the previous line
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
-          Comment.any_instance.should_receive(:update).with({ "content" => "MyString" })
+          Comment.any_instance.should_receive(:attributes=).with({ "content" => "MyString" })
           put :update, {id: comment.to_param, comment: { "content" => "MyString" }, format: 'json'}
         end
 
