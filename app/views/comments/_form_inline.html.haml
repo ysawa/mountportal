@@ -20,4 +20,5 @@
         - if defined? parent
           = f.hidden_field :parent_id, value: parent.id.to_s
         = f.submit t('helpers.submit.submit'), class: 'button'
-      = link_to t('helpers.links.comment_this_parent'), '#', class: 'comment_link'
+      - if defined? parent
+        = link_to t('helpers.links.comment_this_parent'), '#', class: 'comment_link'
