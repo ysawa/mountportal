@@ -1,15 +1,17 @@
 - object_name = f.object_name
-- image_container_id = "#{image_name}_image"
+- object_id = f.object.id.to_s
+- image_container_id = "#{image_name}_#{object_id}_image"
 %div{ id: image_container_id }
   <div class="progress" style="display: none"><span class="meter"></span></div>
   - figure = f.object.public_send(image_name)
   - if figure.present? && figure.image?
     = image_tag figure.image.thumb.url
-- file_field_name = "#{image_name}_file"
-= f.hidden_field "#{image_name}_id"
-- image_field_id = "#{object_name}_#{image_name}_id"
-- field_container_name = "#{image_name}_field"
-- hidden_field_container_name = "hidden_#{image_name}_field"
+- image_field_name = "#{image_name}_id"
+- file_field_name = "#{image_name}_#{object_id}_file"
+- hidden_field_name = "hidden_#{image_name}_#{object_id}_figure"
+- hidden_field_container_name = "hidden_#{image_name}_#{object_id}_field"
+- field_container_name = "#{image_name}_#{object_id}_field"
+= f.hidden_field image_field_name, id: hidden_field_name
 
 %div{ id: field_container_name }
   = file_field_tag 'figure[content]', id: file_field_name
@@ -23,7 +25,7 @@
         return unless $file_field.val()
         $el = $(@)
         $('##{hidden_field_container_name}').append($el)
-        $button = $('##{image_field_id}').parents('form').find('input[type="submit"], button')
+        $button = $('##{file_field_name}').parents('form').find('input[type="submit"], button')
         $button.attr('disabled', true)
         progress = 0
         $('##{image_container_id} .progress').show()
@@ -43,7 +45,7 @@
           },
           (data) ->
             if data and data.message != 'NG'
-              $('##{image_field_id}').val data.id
+              $('##{hidden_field_name}').val data.id
               $('##{image_container_id} .progress').hide()
               $('##{image_container_id} img').remove()
               $button.removeAttr('disabled')

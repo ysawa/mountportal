@@ -1,5 +1,6 @@
 - object_name = f.object_name
-- image_container_name = "#{field_name}_image"
+- object_id = f.object.id.to_s
+- image_container_name = "#{field_name}_#{object_id}_image"
 %div{ id: image_container_name }
   - figure = f.object.public_send(field_name)
   - if figure.present?
@@ -9,10 +10,11 @@
       .caption
         = figure.caption
 - image_field_name = "#{field_name}_id"
-- file_field_name = "#{field_name}_file"
-= f.hidden_field image_field_name
-- field_container_name = "#{field_name}_field"
-- hidden_field_container_name = "hidden_#{field_name}_field"
+- file_field_name = "#{field_name}_#{object_id}_file"
+- hidden_field_name = "hidden_#{field_name}_#{object_id}_figure"
+- hidden_field_container_name = "hidden_#{field_name}_#{object_id}_field"
+- field_container_name = "#{field_name}_#{object_id}_field"
+= f.hidden_field image_field_name, id: hidden_field_name
 
 %div{ id: field_container_name }
   = file_field_tag 'figure[content]', id: file_field_name
@@ -33,7 +35,7 @@
           },
           (data) ->
             if data and data.message != 'NG'
-              $('##{object_name}_#{image_field_name}').val data.id
+              $('##{hidden_field_name}').val data.id
               $('##{image_container_name} img, ##{image_container_name} .caption').remove()
               if data.data
                 if data.data.thumb_image_url
