@@ -21,6 +21,7 @@ ja:
     submit:
       cancel_my_account: 'アカウントを削除する'
       change_my_password: 'パスワードを変更する'
+      comment: 'コメントする'
       save: '保存する'
       send_me_reset_password_instructions: 'パスワード再設定する'
       submit: '送信する'

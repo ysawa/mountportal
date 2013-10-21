@@ -25,9 +25,6 @@
           = f.hidden_field :trek_id, value: trek.id.to_s
         - if defined? parent
           = f.hidden_field :parent_id, value: parent.id.to_s
-        - button_html_classes = %w(button)
-        - if defined? parent
-          - button_html_classes << 'small'
-        = f.submit t('helpers.submit.submit'), class: button_html_classes
+        = f.submit t('helpers.submit.comment'), class: %w(button small)
       - if defined? parent
         = link_to t('helpers.links.comment_this_parent'), '#', class: 'comment_link'
