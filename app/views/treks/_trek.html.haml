@@ -18,7 +18,7 @@
   - if user_signed_in?
     - trek_comments = trek.comments.to_a
   - else
-    - trek_comments = trek_comments.limit(1)
+    - trek_comments = trek.comments.limit(1).to_a
 
   - trek_comments.each do |comment|
     - next if comment.parent?
