@@ -18,7 +18,7 @@
   - trek_comments = trek.comments.to_a
   - unless user_signed_in?
     - trek_comments = trek_comments.limit(1)
-  - trek_comments.each do |comment|
-    - next if comment.parent?
-    = render 'comments/comment', comment: comment, decorator: CommentDecorator.new(comment), past_comment: past_comment, list_mode: true, comments: trek_comments, trek: trek
-    - past_comment = comment
+    - trek_comments.each do |comment|
+      - next if comment.parent?
+      = render 'comments/comment', comment: comment, decorator: CommentDecorator.new(comment), past_comment: past_comment, list_mode: true, comments: trek_comments, trek: trek
+      - past_comment = comment
