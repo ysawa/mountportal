@@ -10,8 +10,8 @@ describe FiguresController do
     describe "POST 'create'" do
 
       before :each do
-        sample_file = File.join(Rails.root, 'app/assets/images/favicon.ico')
-        @image = fixture_file_upload(sample_file, 'image/x-icon')
+        sample_file = File.join(Rails.root, 'spec/fixtures/images/rails.png')
+        @image = fixture_file_upload(sample_file, 'image/png')
       end
 
       it "returns http success" do

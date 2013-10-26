@@ -48,7 +48,8 @@ class TreksController < ApplicationController
 
   # PATCH/PUT /treks/1
   def update
-    if @trek.update(trek_params)
+    @trek.attributes = trek_params
+    if @trek.save
       make_notice(Trek.model_name.human)
       redirect_to @trek
     else

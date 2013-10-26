@@ -6,7 +6,8 @@ describe TreksController do
     @user = Fabricate(:user)
   end
 
-  let(:valid_attributes) { { "name" => "MyString" } }
+  let(:valid_attributes) { { 'name' => 'MyString' } }
+  let(:invalid_attributes) { { 'name' => '' } }
 
   describe "GET index" do
     before :each do
@@ -117,14 +118,14 @@ describe TreksController do
         it "assigns a newly created but unsaved trek as @trek" do
           # Trigger the behavior that occurs when invalid params are submitted
           Trek.any_instance.stub(:save).and_return(false)
-          post :create, {trek: { "name" => "" }}
+          post :create, {trek: invalid_attributes}
           assigns(:trek).should be_a_new(Trek)
         end
 
         it "re-renders the 'new' template" do
           # Trigger the behavior that occurs when invalid params are submitted
           Trek.any_instance.stub(:save).and_return(false)
-          post :create, {trek: { "name" => "" }}
+          post :create, {trek: invalid_attributes}
           response.should render_template("new")
         end
       end
@@ -153,7 +154,8 @@ describe TreksController do
           # specifies that the Trek created on the previous line
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
-          Trek.any_instance.should_receive(:update).with({ "name" => "MyString" })
+          Trek.any_instance.should_receive(:attributes=).with({ "name" => "MyString" })
+          Trek.any_instance.should_receive(:save)
           put :update, {id: trek.to_param, trek: { "name" => "MyString" }}
         end
 
