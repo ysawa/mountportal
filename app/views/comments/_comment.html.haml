@@ -3,6 +3,11 @@
   - comment_html_classes << 'child'
 - else
   - comment_html_classes << cycle('odd', 'even', name: 'comment_odd_even')
+- if @users_cache
+  - author = @users_cache.find(comment.author_id)
+- else
+  - author = comment.author
+- author_decorator = UserDecorator.new author
 .row.comment{ id: "comment_#{comment.id.to_s}", class: comment_html_classes }
   - if list_mode
     .small-12.large-2.columns
@@ -11,7 +16,7 @@
       - else
         &nbsp;
   .small-2.large-1.columns
-    = decorator.author.face(user_signed_in: user_signed_in?)
+    = author_decorator.face(user_signed_in: user_signed_in?)
   .small-10.columns.main_content{ class: (list_mode ? 'large-9' : 'large-11') }
     -# TODO
     -# if current_user == comment.author
