@@ -50,7 +50,7 @@ class Figure
 
   def content=(uploader)
     case uploader
-    when ActionDispatch::Http::UploadedFile
+    when ActionDispatch::Http::UploadedFile, Rack::Test::UploadedFile
       self.content_type = uploader.content_type
       self.caption ||= uploader.original_filename
     when File

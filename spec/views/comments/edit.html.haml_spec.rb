@@ -10,8 +10,7 @@ describe "comments/edit" do
     @comment = assign(:comment, Fabricate.build(:comment, trek: @trek))
     render
 
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", comments_path, "put" do
+    assert_select "form[action=?][method=?]", comments_path, "post" do
       assert_select "input#comment_content[name=?]", "comment[content]"
     end
   end
@@ -20,8 +19,7 @@ describe "comments/edit" do
     @comment = assign(:comment, Fabricate(:comment, trek: @trek))
     render
 
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", comment_path(@comment), "put" do
+    assert_select "form[action=?][method=?]", comment_path(@comment), "post" do
       assert_select "input#comment_content[name=?]", "comment[content]"
     end
   end
