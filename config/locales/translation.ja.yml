@@ -39,6 +39,8 @@ ja:
   statuses:
     published: '公開'
     unpublished: '非公開'
+  treks:
+    author: '作成'
   users:
     account: 'アカウント'
     genders:

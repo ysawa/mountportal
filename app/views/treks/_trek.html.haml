@@ -13,6 +13,12 @@
         = decorator.scheduled_to_date
       - else
         = t('messages.unknown_schedule')
+      - if user_signed_in?
+        %span.author_name
+          \(
+          = t('treks.author')
+          = @users_cache.find(trek.creator_id).name
+          \)
 .comments{ 'data-clearing' => true }
   - past_comment = nil
   - if user_signed_in?
